@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace JustBeerApp
+{
+    public static class Config
+    {
+        public const string NoInternetAlertMessage = "No Internet. Connect to wi-fi or cellular network";
+        public const string NullMessage = null;
+        public const string CancelMessage = "OK";
+        public const string ApiUrl = "http://api.brewerydb.com/v2/beer/random/?key=";
+        public const string ApiKey = "<<Insert Api Key>>";
+    }
+}
