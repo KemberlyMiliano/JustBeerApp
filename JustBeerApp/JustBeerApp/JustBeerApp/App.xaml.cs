@@ -22,6 +22,10 @@ namespace JustBeerApp
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            //containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();
+            //containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
+            //containerRegistry.RegisterForNavigation<RandomBeerPage, RandomBeerPageViewModel>();
+            //containerRegistry.RegisterForNavigation<SearchBeerPage, SearchBeerPageViewModel>();
         }
     }
 }

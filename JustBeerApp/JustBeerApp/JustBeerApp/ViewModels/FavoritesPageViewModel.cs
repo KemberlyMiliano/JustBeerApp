@@ -6,9 +6,9 @@ using System.Text;
 
 namespace JustBeerApp.ViewModels
 {
-    public class HomePageViewModel : BaseViewModel
+    public class FavoritesPageViewModel : BaseViewModel
     {
-        public HomePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public FavoritesPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
