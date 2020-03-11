@@ -7,6 +7,11 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

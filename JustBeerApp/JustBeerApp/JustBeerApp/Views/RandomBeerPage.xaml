@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JustBeerApp.Views.RandomBeerPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="35">
+                <Label Text="{Binding RandomBeer.Data.Name}"
+                TextColor="Black"
+                FontSize="25"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start"/>
+
+                <Image Source="BlackBeer"
+                       HeightRequest="60"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"
+                       Margin="20"/>
+
+                <Label Text="Style:"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="17"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Start"/>
+
+                <Label Text="{Binding RandomBeer.Data.Style}"
+                       TextColor="Gray"
+                       FontSize="15"
+                       FontAttributes="Italic" 
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Start"
+                       Margin="0,0,0,20"/>
+
+                <Label Text="Description:"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="17"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Start"/>
+
+                <Label Text="{Binding RandomBeer.Data.Style}"
+                       TextColor="Gray"
+                       FontSize="15"
+                       FontAttributes="Italic"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Start"/>
+
+                <Button Text="Randomize"           
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        Command="{Binding GetRandomBeer}"
+                        CornerRadius="15"
+                        Margin="30,40,30,40"
+                        BorderColor="Black"
+                        BorderWidth="3"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,7 +9,8 @@ namespace JustBeerApp
         public const string NoInternetAlertMessage = "No Internet. Connect to wi-fi or cellular network";
         public const string NullMessage = null;
         public const string CancelMessage = "OK";
-        public const string ApiUrl = "http://api.brewerydb.com/v2/beer/random/?key=";
-        public const string ApiKey = "<<Insert Api Key>>";
+        public const string ApiUrl = "https://sandbox-api.brewerydb.com/v2/beer/";
+        public const string ApiKey = "/?key=0eca4558813950961ce12aec376f2517";
+        public const string ApiRandomUrl = "https://sandbox-api.brewerydb.com/v2/beer/random/?key=0eca4558813950961ce12aec376f2517";
     }
 }

@@ -16,16 +16,18 @@ namespace JustBeerApp
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri("/NavigationPage/HomePage", UriKind.Absolute));
+            NavigationService.NavigateAsync(new Uri(NavigationConstants.Tab, UriKind.Absolute));
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MenuTabbedPage>();
+            containerRegistry.RegisterForNavigation<MainAppPage, MainAppPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
+            containerRegistry.RegisterForNavigation<RandomBeerPage, RandomBeerPageViewModel>();
+            containerRegistry.RegisterForNavigation<SearchBeerPage, SearchBeerPageViewModel>();
             //containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();
-            //containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
-            //containerRegistry.RegisterForNavigation<RandomBeerPage, RandomBeerPageViewModel>();
-            //containerRegistry.RegisterForNavigation<SearchBeerPage, SearchBeerPageViewModel>();
         }
     }
 }
