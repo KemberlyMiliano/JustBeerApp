@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using JustBeerApp.Services;
+using Prism.Navigation;
 using Prism.Services;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ namespace JustBeerApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public INavigationService _navigationService;
-        public IPageDialogService _pageDialogService;
+
+        protected INavigationService _navigationService;
+        protected IPageDialogService _pageDialogService;
+        protected IApiBeerService ApiBeerService { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

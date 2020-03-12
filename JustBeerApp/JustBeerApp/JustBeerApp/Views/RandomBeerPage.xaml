@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="35">
-                <Label Text="{Binding RandomBeer.Data.Name}"
+                <Label Text="{Binding RandomBeer.Beer.Name}"
                 TextColor="Black"
                 FontSize="25"
                 FontAttributes="Bold"
@@ -28,7 +28,7 @@
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="Start"/>
 
-                <Label Text="{Binding RandomBeer.Data.Style}"
+                <Label Text="{Binding RandomBeer.Beer.Style.Name}"
                        TextColor="Gray"
                        FontSize="15"
                        FontAttributes="Italic" 
@@ -43,7 +43,7 @@
                        HorizontalOptions="StartAndExpand"
                        VerticalOptions="Start"/>
 
-                <Label Text="{Binding RandomBeer.Data.Style}"
+                <Label Text="{Binding RandomBeer.Beer.Style.Description}"
                        TextColor="Gray"
                        FontSize="15"
                        FontAttributes="Italic"

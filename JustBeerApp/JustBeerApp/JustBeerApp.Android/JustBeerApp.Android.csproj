@@ -96,5 +96,17 @@
   <ItemGroup>
     <AndroidResource Include="Resources\Search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\favoritesIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\homeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\randomizeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\searchIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

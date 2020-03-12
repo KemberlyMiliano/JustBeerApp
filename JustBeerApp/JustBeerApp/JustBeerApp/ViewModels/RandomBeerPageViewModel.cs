@@ -36,7 +36,7 @@ namespace JustBeerApp.ViewModels
                 try
                 {
                     RandomBeer = await _apiService.GetRandomBeers();
-                    var x = 1;
+
                 }
                 catch (Exception ex)
                 {

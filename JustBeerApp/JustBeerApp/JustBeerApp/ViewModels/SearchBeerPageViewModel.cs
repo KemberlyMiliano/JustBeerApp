@@ -16,7 +16,6 @@ namespace JustBeerApp.ViewModels
     {
         IApiBeerService _apiBeer = new ApiBeerService();
         public string BeerId { get; set; }
-        public Beer BeerInfo { get; set; }
         public Data Data { get; set; } = new Data();
         public DelegateCommand Search { get; set; }
         public SearchBeerPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
@@ -36,9 +35,6 @@ namespace JustBeerApp.ViewModels
                 try
                 { 
                     Data = await _apiBeer.GetBeers(BeerId);
-                    //BeerInfo = new Beer(GetData.Beer);
-
-
                 }
                 catch (Exception ex)
                 {
