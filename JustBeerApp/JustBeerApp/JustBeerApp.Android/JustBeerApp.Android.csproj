@@ -85,7 +85,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\BlackBeer.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JustBeerApp\JustBeerApp.csproj">
@@ -94,19 +94,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Search.png" />
+    <AndroidResource Include="Resources\drawable\favoritesIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\favoritesIcon.png" />
+    <AndroidResource Include="Resources\drawable\homeIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\homeIcon.png" />
+    <AndroidResource Include="Resources\drawable\randomizeIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\randomizeIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\searchIcon.png" />
+    <AndroidResource Include="Resources\drawable\searchIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

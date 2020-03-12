@@ -6,11 +6,19 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.SearchBeerPage">
     <ContentPage.Content>
-        <StackLayout Padding="0,20">
-            <Entry Placeholder="Insert the endpoint here"
-                   Text="{Binding BeerId}"/>
-            <Button Text="Search"
-                    Command="{Binding Search}"/>
+        <StackLayout Padding="20">
+            <Grid>
+                <Entry Placeholder="Search for beers"
+                   Text="{Binding BeerId}"
+                       Margin="0,30,30,30"/>
+                <ImageButton Source="searchIcon" 
+                       HeightRequest="30" 
+                       HorizontalOptions="End"
+                       Command="{Binding Search}"
+                       BackgroundColor="Transparent"
+                       Margin="0,30,0,30"/>
+            </Grid>
+            
             <Label Text="Beer Name: " Style="{StaticResource LabelStyle}"/>
             <Label Text="{Binding Data.Beer.Name}"/>
             <Label Text="Beer Id:" Style="{StaticResource LabelStyle}"/>

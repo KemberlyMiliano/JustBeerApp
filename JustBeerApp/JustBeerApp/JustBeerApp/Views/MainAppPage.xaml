@@ -7,11 +7,15 @@
              x:Class="JustBeerApp.Views.MainAppPage">
 
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand">
-            <Button Text="GetStarted"
-                    CornerRadius="30" HorizontalOptions="Center"
+        <StackLayout>
+            <Button Text="Get started"
+                    CornerRadius="30" 
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     Command="{Binding TabNavigacion}"
-                     Margin="30,40,30,40"/>
+                    Margin="30,40,30,40"
+                    TextColor="White"
+                    BackgroundColor="Black"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
