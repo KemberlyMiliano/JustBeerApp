@@ -14,22 +14,20 @@ namespace JustBeerApp.ViewModels
     {
         protected INavigationService NavigationService { get; set; }
         protected IApiBeerService ApiService { get; set; }
-
         protected IPageDialogService PageDialogService { get; set; }
 
         public BaseViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService)
         {
             NavigationService = navigationService;
             ApiService = apiService;
+            PageDialogService = pageDialogService;
 
-           
         }
-        async Task<bool> CheckInternetConnection()
+        public async Task<bool> CheckInternetConnection()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 return true;
-
             }
             else
             {

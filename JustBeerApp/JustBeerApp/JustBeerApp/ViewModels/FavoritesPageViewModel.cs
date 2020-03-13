@@ -9,7 +9,7 @@ namespace JustBeerApp.ViewModels
 {
     public class FavoritesPageViewModel : BaseViewModel
     {
-        public FavoritesPageViewModel(INavigationService navigation, IApiBeerService apiService) : base(navigation, apiService)
+        public FavoritesPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
 
         }

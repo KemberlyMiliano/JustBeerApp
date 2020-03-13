@@ -9,7 +9,7 @@ namespace JustBeerApp.ViewModels
 {
     public class BeerInfoPageViewModel : BaseViewModel
     {
-        public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService) : base(navigation, apiService)
+        public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
 
         }

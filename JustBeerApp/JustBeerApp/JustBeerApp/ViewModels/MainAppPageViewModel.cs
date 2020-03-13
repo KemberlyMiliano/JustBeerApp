@@ -10,7 +10,6 @@ namespace JustBeerApp.ViewModels
     public class MainAppPageViewModel
     {
         public DelegateCommand TabNavigacion { get; set; }
-
         public MainAppPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             var nav = new NavigationParameters();

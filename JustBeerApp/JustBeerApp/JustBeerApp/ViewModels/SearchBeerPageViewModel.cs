@@ -18,39 +18,32 @@ namespace JustBeerApp.ViewModels
         public Data Data { get; set; } = new Data();
         public DelegateCommand Search { get; set; }
 
-        public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService)
+        public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
 
             Search = new DelegateCommand(async () =>
             {
                 await GetBeerIngredientData();
             });
-
-
-            async Task GetBeerIngredientData()
-            {
-                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-                {
-                    try
-                    {
-                        Data = await apiService.GetBeers(BeerId);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"API EXCEPTION {ex}");
-                        await pageDialogService.DisplayAlertAsync("Error", $"{ex}", "ok");
-                    }
-
-                }
-                else
-                {
-                    await pageDialogService.DisplayAlertAsync("Alet", "No tienes Conexion a internet", "Ok");
-                }
-            }
         }
 
-        
-       
-       
+        async Task GetBeerIngredientData()
+        {
+            bool internetAccess = await CheckInternetConnection();
+            if (internetAccess)
+            {
+                try
+                {
+                    Data = await ApiService.GetBeers(BeerId);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"API EXCEPTION {ex}");
+                }
+
+            }
+
+        }
+
     }
 }
