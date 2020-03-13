@@ -14,40 +14,41 @@ namespace JustBeerApp.ViewModels
 {
     public class RandomBeerPageViewModel : BaseViewModel
     {
-        IApiBeerService _apiService = new ApiBeerService();
         public Data RandomBeer { get; set; } = new Data();
         public DelegateCommand GetRandomBeer {get; set;}
 
-        public RandomBeerPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public RandomBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
-            _navigationService = navigationService;
-            _pageDialogService = pageDialogService;
-
             GetRandomBeer = new DelegateCommand(async () =>
             {
                 await GetBeerData();
+                
             });
 
-        }
-        async Task GetBeerData()
-        {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+
+            async Task GetBeerData()
             {
-                try
+                
+                if (Connectivity.NetworkAccess == NetworkAccess.Internet)
                 {
-                    RandomBeer = await _apiService.GetRandomBeers();
+                    try
+                    {
+                        RandomBeer = await apiService.GetRandomBeers();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"API EXCEPTION {ex}");
+                    }
 
                 }
-                catch (Exception ex)
+                else
                 {
-                    Debug.WriteLine($"API EXCEPTION {ex}");
+                    await pageDialogService.DisplayAlertAsync(Config.NullMessage, Config.NoInternetAlertMessage, Config.CancelMessage);
                 }
-
-            }
-            else
-            {
-                await App.Current.MainPage.DisplayAlert(Config.NullMessage, Config.NoInternetAlertMessage, Config.CancelMessage);
             }
         }
+        
+       
     }
 }
