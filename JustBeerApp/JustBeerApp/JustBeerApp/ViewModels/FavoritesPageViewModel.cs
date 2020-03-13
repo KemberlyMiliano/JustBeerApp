@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using JustBeerApp.Services;
+using Prism.Navigation;
 using Prism.Services;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,9 @@ namespace JustBeerApp.ViewModels
 {
     public class FavoritesPageViewModel : BaseViewModel
     {
-        public FavoritesPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public FavoritesPageViewModel(INavigationService navigation, IApiBeerService apiService) : base(navigation, apiService)
         {
-            _navigationService = navigationService;
-            _pageDialogService = pageDialogService;
+
         }
     }
 }
