@@ -64,9 +64,12 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="VideoPlayerRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Raleway-Bold.ttf" />
+    <BundleResource Include="Resources\Raleway-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -146,5 +149,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\BlackBeer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IntroVideo.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logoIcon.png" />
   </ItemGroup>
 </Project>

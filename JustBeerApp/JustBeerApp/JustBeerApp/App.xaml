@@ -13,6 +13,16 @@
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="Raleway-Bold.ttf#Raleway" />
+                <On Platform="UWP" Value="/Assets/Raleway-Bold.ttf#Raleway" />
+                <On Platform="iOS" Value="Raleway-Bold" />
+            </OnPlatform>
+            <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+                <On Platform="Android" Value="Raleway-Regular.ttf#Raleway" />
+                <On Platform="UWP" Value="/Assets/Raleway-Regular.ttf#Raleway" />
+                <On Platform="iOS" Value="Raleway-Regular" />
+            </OnPlatform>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

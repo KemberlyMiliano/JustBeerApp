@@ -4,18 +4,40 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="JustBeerApp.Views.MainAppPage">
+             x:Class="JustBeerApp.Views.MainAppPage"
+             xmlns:local="clr-namespace:JustBeerApp.Controls"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Get started"
-                    CornerRadius="30" 
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="FillAndExpand"
-                    Command="{Binding TabNavigacion}"
-                    Margin="30,40,30,40"
+        <Grid>
+            <local:VideoPlayer Source="IntroVideo.mp4" />
+            <ScrollView>
+                <StackLayout Margin="10">
+
+                    <Image Source="logoIcon"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                       Margin="0,30,0,0"/>
+
+
+                    <Label Text="Beer and that's it!"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       FontFamily="{StaticResource BoldFont}" 
+                       TextColor="White"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+                    <Button Text="Get started"
+                    FontFamily="{StaticResource NormalFont}"
+                    CornerRadius="40"
+                    Margin="25"
                     TextColor="White"
-                    BackgroundColor="Black"/>
-        </StackLayout>
+                    BackgroundColor="Black"
+                    Command="{Binding TabNavigacion}"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

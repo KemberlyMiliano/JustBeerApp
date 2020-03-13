@@ -8,10 +8,32 @@
              x:Class="JustBeerApp.Views.MenuTabbedPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom">
+    <TabbedPage.Children>
+        <NavigationPage Title="Home" IconImageSource="homeIcon">
+            <x:Arguments>
+                <local:HomePage />
+            </x:Arguments>
+        </NavigationPage>
 
-    <local:HomePage Title="Home" IconImageSource="homeIcon"/>
-    <local:SearchBeerPage Title="Search" IconImageSource="searchIcon"/>
-    <local:RandomBeerPage Title="Randomize" IconImageSource="randomizeIcon"/>
-    <local:FavoritesPage Title="Favorites" IconImageSource="favoritesIcon"/>
+        <NavigationPage Title="Search" IconImageSource="searchIcon">
+            <x:Arguments>
+                <local:SearchBeerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Randomize" IconImageSource="randomizeIcon">
+            <x:Arguments>
+                <local:RandomBeerPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Favorites" IconImageSource="favoritesIcon">
+            <x:Arguments>
+                <local:FavoritesPage />
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+
+
 
 </TabbedPage>
