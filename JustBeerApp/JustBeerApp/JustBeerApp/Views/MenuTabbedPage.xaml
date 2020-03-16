@@ -7,7 +7,10 @@
              xmlns:local="clr-namespace:JustBeerApp.Views"
              x:Class="JustBeerApp.Views.MenuTabbedPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            android:TabbedPage.ToolbarPlacement="Bottom">
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor ="White"
+            android:TabbedPage.BarSelectedItemColor ="Orange"
+            BarBackgroundColor="Black">
     <TabbedPage.Children>
         <NavigationPage Title="Home" IconImageSource="homeIcon">
             <x:Arguments>
