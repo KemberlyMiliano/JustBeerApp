@@ -19,12 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Main.xaml.cs">
-      <DependentUpon>Main.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Views\BeerInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

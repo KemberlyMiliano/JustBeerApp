@@ -4,60 +4,34 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="JustBeerApp.Views.RandomBeerPage">
+             x:Class="JustBeerApp.Views.RandomBeerPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="35">
-                <Label Text="{Binding RandomBeer.Beer.Name}"
-                TextColor="Black"
-                FontSize="25"
-                FontAttributes="Bold"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Start"/>
-
-                <Image Source="BlackBeer"
-                       HeightRequest="60"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Start"
-                       Margin="20"/>
-
-                <Label Text="Style:"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontSize="17"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Start"/>
-
-                <Label Text="{Binding RandomBeer.Beer.Style.Name}"
-                       TextColor="Gray"
-                       FontSize="15"
-                       FontAttributes="Italic" 
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Start"
-                       Margin="0,0,0,20"/>
-
-                <Label Text="Description:"
-                       TextColor="Black"
-                       FontAttributes="Bold"
-                       FontSize="17"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Start"/>
-
-                <Label Text="{Binding RandomBeer.Beer.Style.Description}"
-                       TextColor="Gray"
-                       FontSize="15"
-                       FontAttributes="Italic"
-                       HorizontalOptions="StartAndExpand"
-                       VerticalOptions="Start"/>
-
-                <Button Text="Randomize"           
-                        TextColor="Black"
-                        BackgroundColor="White"
-                        Command="{Binding GetRandomBeer}"
-                        CornerRadius="15"
-                        Margin="30,40,30,40"
-                        BorderColor="Black"
-                        BorderWidth="3"/>
+                <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
+                TextColor="White"
+                FontSize="35"
+                FontFamily="{StaticResource BoldFont}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,30,0,20"/>
+                <Frame BackgroundColor="LightGray" 
+                       CornerRadius="5" 
+                       Padding="40">
+                    <Image 
+                        Source="BlackBeer"
+                        Aspect="AspectFit"/>
+                </Frame>
+               
+                <Button Text="Get another try"
+                        TextColor="White"
+                        BackgroundColor="#C8733E"
+                        FontFamily="{StaticResource NormalFont}"
+                        CornerRadius="25"
+                        Margin="0,50,0,0"
+                        Command="{Binding GetRandomBeer}"/>
 
             </StackLayout>
         </ScrollView>
