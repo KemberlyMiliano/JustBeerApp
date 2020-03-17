@@ -7,7 +7,6 @@ namespace JustBeerApp.Models
 {
     public class Data
     {
-
         [JsonProperty("message")]
         public string Message { get; set; }
 

@@ -19,8 +19,7 @@ namespace JustBeerApp.ViewModels
         protected IApiBeerService ApiService { get; set; }
         protected IPageDialogService PageDialogService { get; set; }
         public Data RandomBeer { get; set; } = new Data();
-        public Beers BeerList { get; set; } = new Beers();
-        public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
+
         public BaseViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService)
         {
             NavigationService = navigationService;
@@ -41,7 +40,6 @@ namespace JustBeerApp.ViewModels
 
             return false;
         }
-
         public async Task GetBeerData()
         {
             bool internetAccess = await CheckInternetConnection();
@@ -51,7 +49,6 @@ namespace JustBeerApp.ViewModels
                 try
                 {
                     RandomBeer = await ApiService.GetRandomBeers();
-                    var x = 1;
                 }
                 catch (Exception ex)
                 {
@@ -59,23 +56,7 @@ namespace JustBeerApp.ViewModels
                 }
             }
         }
-        public async Task GetBeers()
-        {
-            bool internetAccess = await CheckInternetConnection();
 
-            if (internetAccess)
-            {
-                try
-                {
-                    BeerList = await ApiService.GetListOfBeers();
-                    HomeBeers = BeerList.Data;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"API EXCEPTION {ex}");
-                }
-            }
-        }
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

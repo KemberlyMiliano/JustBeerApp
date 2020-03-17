@@ -7,7 +7,6 @@ namespace JustBeerApp.Models
 {
     public class Datum
     {
-
         [JsonProperty("id")]
         public string Id { get; set; }
 

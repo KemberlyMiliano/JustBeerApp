@@ -16,7 +16,6 @@ namespace JustBeerApp.ViewModels
             var nav = new NavigationParameters();
             TabNavigacion = new DelegateCommand(async () =>
             {
-                await GetBeers();
                 await NavigationService.NavigateAsync(NavigationConstants.TabbedMenu, nav);
             });
         }

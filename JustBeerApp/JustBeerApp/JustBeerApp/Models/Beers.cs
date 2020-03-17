@@ -8,7 +8,6 @@ namespace JustBeerApp.Models
 {
     public class Beers
     {
-
         [JsonProperty("currentPage")]
         public int CurrentPage { get; set; }
 
