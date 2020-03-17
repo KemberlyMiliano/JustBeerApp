@@ -10,5 +10,6 @@ namespace JustBeerApp.Services
     {
         Task<Data> GetBeers(string id);
         Task<Data> GetRandomBeers();
+        Task<Beers> GetListOfBeers();
     }
 }

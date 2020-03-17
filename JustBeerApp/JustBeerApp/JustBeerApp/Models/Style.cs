@@ -58,5 +58,8 @@ namespace JustBeerApp.Models
 
         [JsonProperty("updateDate")]
         public string UpdateDate { get; set; }
+
+        [JsonProperty("ogMax")]
+        public string OgMax { get; set; }
     }
 }

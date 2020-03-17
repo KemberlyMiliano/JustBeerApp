@@ -12,7 +12,6 @@ namespace JustBeerApp.Services
     {
         public async Task<Data> GetBeers(string id)
         {
-            
             HttpClient client = new HttpClient();
             var result = await client.GetStringAsync(Config.ApiUrl + id + Config.ApiKey);
             return JsonConvert.DeserializeObject<Data>(result);
@@ -21,8 +20,14 @@ namespace JustBeerApp.Services
         public async Task<Data> GetRandomBeers()
         {
             HttpClient client = new HttpClient();
-            var result = await client.GetStringAsync(Config.ApiRandomUrl);
+            var result = await client.GetStringAsync(Config.ApiRandomUrl + Config.ApiKey);
             return JsonConvert.DeserializeObject<Data>(result);
+        }
+        public async Task<Beers> GetListOfBeers()
+        {
+            HttpClient client = new HttpClient();
+            var result = await client.GetStringAsync(Config.ApiListOfBeersUrl + Config.ApiKey);
+            return JsonConvert.DeserializeObject<Beers>(result);
         }
     }
 }

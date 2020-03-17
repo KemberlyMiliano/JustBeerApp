@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using JustBeerApp.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using System;
@@ -7,15 +8,16 @@ using System.Text;
 
 namespace JustBeerApp.ViewModels
 {
-    public class MainAppPageViewModel
+    public class MainAppPageViewModel : BaseViewModel
     {
         public DelegateCommand TabNavigacion { get; set; }
-        public MainAppPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public MainAppPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
             var nav = new NavigationParameters();
             TabNavigacion = new DelegateCommand(async () =>
             {
-                await navigationService.NavigateAsync(NavigationConstants.TabbedMenu, nav);
+                await GetBeers();
+                await NavigationService.NavigateAsync(NavigationConstants.TabbedMenu, nav);
             });
         }
     }

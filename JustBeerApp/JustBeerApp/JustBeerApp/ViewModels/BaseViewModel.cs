@@ -4,6 +4,7 @@ using Prism.Navigation;
 using Prism.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
@@ -12,13 +13,14 @@ using Xamarin.Essentials;
 
 namespace JustBeerApp.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         protected INavigationService NavigationService { get; set; }
         protected IApiBeerService ApiService { get; set; }
         protected IPageDialogService PageDialogService { get; set; }
         public Data RandomBeer { get; set; } = new Data();
-
+        public Beers BeerList { get; set; } = new Beers();
+        public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
         public BaseViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService)
         {
             NavigationService = navigationService;
@@ -49,6 +51,7 @@ namespace JustBeerApp.ViewModels
                 try
                 {
                     RandomBeer = await ApiService.GetRandomBeers();
+                    var x = 1;
                 }
                 catch (Exception ex)
                 {
@@ -56,7 +59,23 @@ namespace JustBeerApp.ViewModels
                 }
             }
         }
+        public async Task GetBeers()
+        {
+            bool internetAccess = await CheckInternetConnection();
 
+            if (internetAccess)
+            {
+                try
+                {
+                    BeerList = await ApiService.GetListOfBeers();
+                    HomeBeers = BeerList.Data;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"API EXCEPTION {ex}");
+                }
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

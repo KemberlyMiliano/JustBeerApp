@@ -17,7 +17,7 @@
                           BackgroundColor="Transparent"
                           AbsoluteLayout.LayoutBounds="320,0,30,100"/>
 
-            <Label Text="Recently seen"
+            <Label Text="Recently added"
                    FontSize="20"
                    FontFamily="{StaticResource BoldFont}"
                    TextColor="White"
@@ -46,11 +46,11 @@
 
                             <Frame BackgroundColor="LightGray" Grid.RowSpan="2" CornerRadius="5" Padding="8">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="favoritesIcon"
-                                           HeightRequest="25"    
-                                           WidthRequest="25" />
+                                    <Image Source="{Binding Labels.Icon}" 
+                                           HeightRequest="5"    
+                                           WidthRequest="5" />
                                     <Label Grid.Column="1"   
-                                           Text="{Binding Data.Beer.NameDisplay}"    
+                                           Text="{Binding NameDisplay}"    
                                            FontAttributes="Bold"
                                            Margin="10,10,10,10"/>
                                 </StackLayout>
@@ -78,12 +78,13 @@
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Image Source="Image2"    
+                            <Image Source="{Binding Labels.Icon}"    
                                    HeightRequest="170"    
                                    WidthRequest="30"/>
                             <Label Grid.Column="1"    
-                                   Text="{Binding Data.Beer.NameDisplay}"    
-                                   FontAttributes="Bold"/>
+                                   Text="{Binding NameDisplay}"    
+                                   FontAttributes="Bold"
+                                   TextColor="White"/>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
