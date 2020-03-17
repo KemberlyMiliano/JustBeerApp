@@ -8,45 +8,22 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
     <ContentPage.Content>
-        <StackLayout Padding="20">
+        <AbsoluteLayout>
+            <Image Source="homeBackgroundImage.jpeg"/>
+            <Image Source="logoIcon"
+                   AbsoluteLayout.LayoutBounds="20,20,180,100"/>
+            <ImageButton Source="settingsIcon"
+                          HeightRequest="25"
+                          BackgroundColor="Transparent"
+                          AbsoluteLayout.LayoutBounds="320,0,30,100"/>
 
-            <Grid Margin="0,10,0,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Text="Just Beer"
-                       FontSize="25"
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="3"
-                       Grid.RowSpan="2"
-                       FontFamily="{StaticResource BoldFont}"
-                        TextColor="White"/>
-
-                <ImageButton Source="settingsIcon"
-                     HeightRequest="25"
-                     Grid.Row="0"
-                     Grid.Column="4"
-                     BackgroundColor="Transparent"/>
-            </Grid>
-
-            <Image Source="Image2"
-                   HeightRequest="100"
-                   WidthRequest="0"
-                   Margin="0,0,0,30"/>
-            
             <Label Text="Recently seen"
                    FontSize="20"
                    FontFamily="{StaticResource BoldFont}"
-                   TextColor="White"/>
-            <CollectionView ItemsSource="{Binding HomeBeers}">
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds="20,205,205,100"/>
+
+            <CollectionView ItemsSource="{Binding HomeBeers}"  AbsoluteLayout.LayoutBounds="10,250,355,130">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                                  Span="2">
@@ -87,11 +64,14 @@
             <Label Text="Discover"
                    FontSize="20"
                    FontFamily="{StaticResource BoldFont}"
-                   TextColor="White"/>
-            
+                   TextColor="White"
+                   AbsoluteLayout.LayoutBounds="20,400,355,130"/>
+
             <CarouselView ItemsSource="{Binding HomeBeers}" 
                           NumberOfSideItems="1"
-                          PeekAreaInsets="10,10,10,10">
+                          PeekAreaInsets="10,10,10,10"
+                          Margin="5"
+                          AbsoluteLayout.LayoutBounds="0,450,375,130">
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12"/>
                 </CarouselView.ItemsLayout>
@@ -108,8 +88,6 @@
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
-
-        </StackLayout>
-
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

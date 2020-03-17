@@ -156,4 +156,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\logoIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homeBackgroundImage.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\settingsIcon.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
 </Project>
