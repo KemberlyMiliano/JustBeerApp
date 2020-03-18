@@ -9,28 +9,61 @@
              BackgroundColor="Black">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="35">
-                <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
-                TextColor="White"
-                FontSize="35"
-                FontFamily="{StaticResource BoldFont}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Margin="0,30,0,20"/>
-                <Frame BackgroundColor="LightGray" 
-                       CornerRadius="5" 
-                       Padding="40">
-                    <Image 
-                        Source="BlackBeer"
-                        Aspect="AspectFit"/>
+            <StackLayout Padding="20">
+                <Image 
+                    Source="exitButton"
+                    HeightRequest="50" 
+                    HorizontalOptions="StartAndExpand"
+                    Margin="0,0,0,40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Frame BackgroundColor="White" 
+                       CornerRadius="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image                       
+                            Source="Image3"       
+                            Margin="0,0,0,10"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"/>
+
+                        <Image
+                            Source="favoritesIcon"
+                            HeightRequest="40" 
+                            HorizontalOptions="End"
+                            Margin="0,0,0,10"
+                            Grid.Row="1"
+                            Grid.Column="1">
+                        </Image>
+
+                        <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
+                           TextColor="Gray"
+                           FontSize="30"
+                           FontFamily="{StaticResource BoldFont}"
+                           HorizontalOptions="Start"
+                           Grid.Row="1"
+                           Grid.Column="0"/>
+                    </Grid>
                 </Frame>
 
                 <Button Text="Get another try"
                         TextColor="White"
-                        BackgroundColor="#C8733E"
-                        FontFamily="{StaticResource NormalFont}"
+                        BackgroundColor="Gray"
+                        FontFamily="{StaticResource BoldFont}"
                         CornerRadius="25"
-                        Margin="0,50,0,0"
+                        Margin="0,60,0,0"
+                        Padding="15"
                         Command="{Binding GetRandomBeer}"/>
 
             </StackLayout>

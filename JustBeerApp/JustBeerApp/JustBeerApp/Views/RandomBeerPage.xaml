@@ -10,26 +10,20 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="20">
-                <Image 
-                    Source="exitButton"
-                    HeightRequest="50" 
-                    HorizontalOptions="StartAndExpand"
-                    Margin="0,0,0,40">
-                </Image>
 
-                <Frame BackgroundColor="White" 
+                <!--<Frame BackgroundColor="White" 
                        CornerRadius="5">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                       
+
                         <Image                       
                             Source="Image3"       
                             Margin="0,0,0,10"
                             Grid.Row="0"/>
-                        
+
                         <Image
                             Source="favoritesIcon"
                             HeightRequest="40" 
@@ -37,7 +31,7 @@
                             Margin="0,0,0,10"
                             Grid.Row="1">
                         </Image>
-                        
+
                         <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
                            TextColor="Gray"
                            FontSize="30"
@@ -45,16 +39,16 @@
                            HorizontalOptions="Start"
                            Grid.Row="1"/>
                     </Grid>
-                </Frame>
+                </Frame>-->
 
-                <Button Text="Get another try"
+                <Button Text="Randomize"
                         TextColor="White"
                         BackgroundColor="Gray"
                         FontFamily="{StaticResource BoldFont}"
                         CornerRadius="25"
                         Margin="0,60,0,0"
-                        Padding="15"
-                        Command="{Binding GetRandomBeer}"/>
+                        Padding="100"
+                        Command="{Binding GoToRandomBeerDetailedPage}"/>
 
             </StackLayout>
         </ScrollView>

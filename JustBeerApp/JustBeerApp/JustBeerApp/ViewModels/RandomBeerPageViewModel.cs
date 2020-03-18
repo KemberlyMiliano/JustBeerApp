@@ -15,7 +15,9 @@ namespace JustBeerApp.ViewModels
     public class RandomBeerPageViewModel : BaseViewModel
     {
         public DelegateCommand GetRandomBeer { get; set; }
-        public DelegateCommand GoToBeerInfoCommand { get; set; }
+        public DelegateCommand GoToRandomBeerDetailedPage { get; set; }
+        public DelegateCommand GoBackCommand { get; set; }
+
         public RandomBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
             GetRandomBeer = new DelegateCommand(async () =>
@@ -26,11 +28,19 @@ namespace JustBeerApp.ViewModels
 
             GetRandomBeer.Execute();
 
-            GoToBeerInfoCommand = new DelegateCommand(async () =>
+            GoToRandomBeerDetailedPage = new DelegateCommand(async () =>
             {
-                await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
+                await navigation.NavigateAsync(NavigationConstants.RandomBeerDetailedPage);
 
             });
+
+            GoBackCommand = new DelegateCommand(async () =>
+            {
+                await navigation.GoBackAsync();
+
+
+            });
+
 
         }
 
