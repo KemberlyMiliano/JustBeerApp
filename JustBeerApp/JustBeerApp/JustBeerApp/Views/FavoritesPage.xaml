@@ -4,12 +4,40 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black"
              x:Class="JustBeerApp.Views.FavoritesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5"/>
+                    <ColumnDefinition Width="2.5"/>
+                    <ColumnDefinition Width="2.5"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Label Text="My Favorites"
+                VerticalOptions="Start"
+                   Style="{StaticResource BoldFont}"
+                   TextColor="White"
+                   FontSize="48"/>
+            
+            <Label Text="Save the content that you liked most!"
+                   Style="{StaticResource NormalFont}"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="Gray"/>
+            
+            <Button ImageSource="FavPlusIcon"
+                    CornerRadius="360"
+                    BackgroundColor="Gold"
+                    HorizontalOptions="End" HeightRequest="75" WidthRequest="75"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
