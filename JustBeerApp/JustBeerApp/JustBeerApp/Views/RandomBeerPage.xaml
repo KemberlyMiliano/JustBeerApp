@@ -3,54 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:JustBeerApp.Controls"
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.RandomBeerPage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20">
+            <Grid Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label                     
+                    Grid.Row="0"         
+                    Text="Random Beer"            
+                    TextColor="White"
+                    FontSize="35"
+                    FontFamily="{StaticResource BoldFont}"
+                    HorizontalOptions="Center" 
+                    Margin="0,50,0,0"/>
 
-                <!--<Frame BackgroundColor="White" 
-                       CornerRadius="5">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                <local:CustomLoader             
+                    x:Name="loader"          
+                    Grid.Row="0"             
+                    Source="beerIcon"            
+                    HeightRequest="250"            
+                    RotationLenght="2500"           
+                    IsVisible="{Binding IsBusy}"            
+                    IsRunning="{Binding IsBusy}"           
+                    HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToRandomBeerDetailedPage}"/>
+                    </Image.GestureRecognizers>
+                </local:CustomLoader>
 
-                        <Image                       
-                            Source="Image3"       
-                            Margin="0,0,0,10"
-                            Grid.Row="0"/>
+                <Label 
+                    Text="Tap the beer to get a random one!" 
+                    Grid.Row="0"
+                    TextColor="Gray"
+                    FontFamily="{StaticResource NormalFont}"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,80"/>
 
-                        <Image
-                            Source="favoritesIcon"
-                            HeightRequest="40" 
-                            HorizontalOptions="End"
-                            Margin="0,0,0,10"
-                            Grid.Row="1">
-                        </Image>
-
-                        <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
-                           TextColor="Gray"
-                           FontSize="30"
-                           FontFamily="{StaticResource BoldFont}"
-                           HorizontalOptions="Start"
-                           Grid.Row="1"/>
-                    </Grid>
-                </Frame>-->
-
-                <Button Text="Randomize"
-                        TextColor="White"
-                        BackgroundColor="Gray"
-                        FontFamily="{StaticResource BoldFont}"
-                        CornerRadius="25"
-                        Margin="0,60,0,0"
-                        Padding="100"
-                        Command="{Binding GoToRandomBeerDetailedPage}"/>
-
-            </StackLayout>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

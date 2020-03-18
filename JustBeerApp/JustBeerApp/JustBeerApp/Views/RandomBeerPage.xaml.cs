@@ -15,6 +15,7 @@ namespace JustBeerApp.Views
         public RandomBeerPage()
         {
             InitializeComponent();
+            loader.Easing = Easing.CubicIn;
         }
     }
 }

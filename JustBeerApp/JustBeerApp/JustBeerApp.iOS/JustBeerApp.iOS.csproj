@@ -171,4 +171,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\orangeHeart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+  </ItemGroup>
 </Project>

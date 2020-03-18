@@ -132,5 +132,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Image3.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
