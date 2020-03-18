@@ -166,15 +166,9 @@
     <BundleResource Include="Resources\beerIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\filledHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\notFilledHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\closeButton.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\exitButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orangeHeart.png" />
   </ItemGroup>
 </Project>

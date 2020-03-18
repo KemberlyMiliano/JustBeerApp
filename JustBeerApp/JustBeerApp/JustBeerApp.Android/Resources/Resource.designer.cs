@@ -7680,49 +7680,49 @@ namespace JustBeerApp.Droid
 			public const int beerIcon = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int closeButton = 2131165277;
+			public const int design_bottom_navigation_item_background = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int design_bottom_navigation_item_background = 2131165278;
+			public const int design_fab_background = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int design_fab_background = 2131165279;
+			public const int design_ic_visibility = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int design_ic_visibility = 2131165280;
+			public const int design_ic_visibility_off = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int design_ic_visibility_off = 2131165281;
+			public const int design_password_eye = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int design_password_eye = 2131165282;
+			public const int design_snackbar_background = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int design_snackbar_background = 2131165283;
+			public const int exitButton = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int exitButton = 2131165284;
+			public const int favoritesIcon = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int favoritesIcon = 2131165285;
+			public const int FavPlusIcon = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int FavPlusIcon = 2131165286;
+			public const int homeBackgroundImage = 2131165286;
 			
 			// aapt resource value: 0x7F070067
-			public const int homeBackgroundImage = 2131165287;
+			public const int homeIcon = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int homeIcon = 2131165288;
+			public const int ic_mtrl_chip_checked_black = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int ic_mtrl_chip_checked_black = 2131165289;
+			public const int ic_mtrl_chip_checked_circle = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int ic_mtrl_chip_checked_circle = 2131165290;
+			public const int ic_mtrl_chip_close_circle = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int ic_mtrl_chip_close_circle = 2131165291;
+			public const int Image3 = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
 			public const int logoIcon = 2131165292;
@@ -7773,19 +7773,22 @@ namespace JustBeerApp.Droid
 			public const int notify_panel_notification_icon_bg = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int randomizeIcon = 2131165308;
+			public const int orangeHeart = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int searchIcon = 2131165309;
+			public const int randomizeIcon = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int settingsIcon = 2131165310;
+			public const int searchIcon = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int tooltip_frame_dark = 2131165311;
+			public const int settingsIcon = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int tooltip_frame_light = 2131165312;
+			public const int tooltip_frame_dark = 2131165312;
+			
+			// aapt resource value: 0x7F070081
+			public const int tooltip_frame_light = 2131165313;
 			
 			static Drawable()
 			{

@@ -52,7 +52,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10,10,0,0">
-                            <Frame BackgroundColor="LightGray" Grid.RowSpan="2" CornerRadius="5" Padding="1">
+                            <Frame BackgroundColor="White" Grid.RowSpan="2" CornerRadius="5" Padding="1">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="{Binding Labels.Icon}" 
                                            HeightRequest="60"
