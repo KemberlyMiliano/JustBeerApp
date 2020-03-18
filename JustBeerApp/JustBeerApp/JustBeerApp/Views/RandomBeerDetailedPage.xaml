@@ -19,11 +19,12 @@
                         <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
                     </Image.GestureRecognizers>
                 </Image>
-
+              
                 <Frame BackgroundColor="White" 
                        CornerRadius="5">
                     <Grid>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
@@ -37,6 +38,7 @@
                             Margin="0,0,0,10"
                             Grid.Row="0"
                             Grid.ColumnSpan="2"/>
+                        
 
                         <Image
                             Source="favoritesIcon"
@@ -54,6 +56,35 @@
                            HorizontalOptions="Start"
                            Grid.Row="1"
                            Grid.Column="0"/>
+
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Text="Style:"
+                           TextColor="Black"
+                           FontSize="20"
+                           FontFamily="{StaticResource NormalFont}"
+                                   TextDecorations="Underline"
+                           HorizontalOptions="Start"
+                           Margin="0,15,10,15"
+                                   Grid.Column="0"/>
+
+                            <Label Text="{Binding RandomBeer.Beer.Style.ShortName}"
+                           TextColor="Black"
+                           FontSize="20"
+                           FontFamily="{StaticResource NormalFont}"
+                           HorizontalOptions="Start"
+                           Margin="0,15,0,15"
+                                   Grid.Column="1"/>
+                        </Grid>
+
+                       
                     </Grid>
                 </Frame>
 
