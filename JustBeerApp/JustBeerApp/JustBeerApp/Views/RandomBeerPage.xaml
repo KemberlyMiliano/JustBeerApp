@@ -9,28 +9,45 @@
              BackgroundColor="Black">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="35">
-                <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
-                TextColor="White"
-                FontSize="35"
-                FontFamily="{StaticResource BoldFont}"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Margin="0,30,0,20"/>
-                <Frame BackgroundColor="LightGray" 
+            <StackLayout Margin="25">
+                <Image 
+                    Source="exitButton"
+                    HeightRequest="50" 
+                    HorizontalOptions="StartAndExpand"
+                    Margin="0,0,0,20">
+
+                </Image>
+
+                <Frame BackgroundColor="White" 
                        CornerRadius="5" 
-                       Padding="40">
-                    <Image 
-                        Source="BlackBeer"
-                        Aspect="AspectFit"/>
+                       Padding="20">
+                    <StackLayout>
+                        <Image
+                            Source="favoritesIcon"
+                            HeightRequest="40" 
+                            HorizontalOptions="End"
+                            Margin="0,0,0,10">
+
+                        </Image>
+                        <Image                       
+                            Source="beerIcon"       
+                            HeightRequest="180"
+                            Margin="0,0,0,10"/>
+                        <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
+                           TextColor="Black"
+                           FontSize="30"
+                           FontFamily="{StaticResource BoldFont}"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                    </StackLayout>
                 </Frame>
-               
+
                 <Button Text="Get another try"
                         TextColor="White"
                         BackgroundColor="#C8733E"
-                        FontFamily="{StaticResource NormalFont}"
+                        FontFamily="{StaticResource BoldFont}"
                         CornerRadius="25"
-                        Margin="0,50,0,0"
+                        Margin="0,60,0,0"
                         Command="{Binding GetRandomBeer}"/>
 
             </StackLayout>

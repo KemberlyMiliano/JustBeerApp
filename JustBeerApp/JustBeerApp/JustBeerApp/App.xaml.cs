@@ -30,7 +30,7 @@ namespace JustBeerApp
             containerRegistry.RegisterForNavigation<SearchBeerPage, SearchBeerPageViewModel>();
             containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();
             containerRegistry.Register<IApiBeerService, ApiBeerService>();
-            //containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();
+            containerRegistry.RegisterForNavigation<RandomBeerDetailedPage, RandomBeerPageViewModel>();
         }
     }
 }

@@ -148,9 +148,6 @@
     <BundleResource Include="Resources\favoritesIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\BlackBeer.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\IntroVideo.mp4" />
   </ItemGroup>
   <ItemGroup>
@@ -164,5 +161,20 @@
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\beerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\filledHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\notFilledHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\closeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\exitButton.png" />
   </ItemGroup>
 </Project>

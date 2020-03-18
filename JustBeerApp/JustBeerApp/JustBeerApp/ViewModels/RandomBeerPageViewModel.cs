@@ -24,6 +24,8 @@ namespace JustBeerApp.ViewModels
 
             });
 
+            GetRandomBeer.Execute();
+
             GoToBeerInfoCommand = new DelegateCommand(async () =>
             {
                 await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
