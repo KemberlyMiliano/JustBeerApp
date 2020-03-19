@@ -17,5 +17,18 @@ namespace JustBeerApp.Views
         {
             InitializeComponent();
         }
+
+        private void OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            //if (string.IsNullOrEmpty(e.NewTextValue))
+            //{
+            //    list.ItemsSource = tempdata;
+            //}
+
+            //else
+            //{
+            //    list.ItemsSource = tempdata.Where(x => x.Name.StartsWith(e.NewTextValue));
+            //}
+        }
     }
 }

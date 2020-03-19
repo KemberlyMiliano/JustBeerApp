@@ -8,29 +8,33 @@
              BackgroundColor="Black"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Grid>
-                <Entry Placeholder="Search for beers"
-                   Text="{Binding BeerId}"
-                       TextColor="White"
-                       PlaceholderColor="Gray"
-                       Margin="0,30,30,30"/>
-                <ImageButton Source="searchIcon" 
-                       HeightRequest="30" 
-                       HorizontalOptions="End"
-                       Command="{Binding Search}"
-                       BackgroundColor="Transparent"
-                       Margin="0,30,0,30"/>
-            </Grid>
+        <StackLayout>
 
-            <Label Text="Beer Name: " Style="{StaticResource LabelStyle}"/>
-            <Label Text="{Binding Data.Beer.Name}"/>
-            <Label Text="Beer Id:" Style="{StaticResource LabelStyle}"/>
-            <Label Text="{Binding Data.Beer.Id}"/>
-            <Label Text="Beer Organic?: " Style="{StaticResource LabelStyle}"/>
-            <Label Text="{Binding Data.Beer.IsOrganic}"/>
-            <Label Text="Beer Creation Date: " Style="{StaticResource LabelStyle}"/>
-            <Label Text="{Binding Data.Beer.CreateDate}"/>
+            <Grid BackgroundColor="#171717" 
+                  VerticalOptions="Start"
+                  HorizontalOptions="Fill"
+                  Padding="10">
+                <SearchBar CancelButtonColor="White"
+                       Placeholder="Search"
+                       PlaceholderColor="DarkGray"
+                       VerticalOptions="Center"
+                           TextColor="White"
+                           FontFamily="{StaticResource BoldFont}"
+                           FontSize="15"
+                           TextChanged="OnTextChanged"/>
+            </Grid>
+            <StackLayout Padding="20">
+                <Label Text="Beer Name: " Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Beer.Name}"/>
+                <Label Text="Beer Id:" Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Beer.Id}"/>
+                <Label Text="Beer Organic?: " Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Beer.IsOrganic}"/>
+                <Label Text="Beer Creation Date: " Style="{StaticResource LabelStyle}"/>
+                <Label Text="{Binding Data.Beer.CreateDate}"/>
+            </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
