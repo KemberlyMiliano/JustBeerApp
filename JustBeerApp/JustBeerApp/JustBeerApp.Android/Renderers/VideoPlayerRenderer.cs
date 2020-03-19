@@ -14,12 +14,13 @@ using Android.Views;
 using Android.Widget;
 using JustBeerApp.Controls;
 using JustBeerApp.Droid;
+using JustBeerApp.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using AWR = Android.Widget.RelativeLayout;
 
 [assembly: ExportRenderer(typeof(VideoPlayer), typeof(VideoPlayerRenderer))]
-namespace JustBeerApp.Droid
+namespace JustBeerApp.Droid.Renderers
 {
     public class VideoPlayerRenderer : ViewRenderer<VideoPlayer, AWR>
     {

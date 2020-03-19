@@ -43,7 +43,6 @@ namespace JustBeerApp.ViewModels
             {
                 await navigation.GoBackAsync();
 
-
             });
 
         }

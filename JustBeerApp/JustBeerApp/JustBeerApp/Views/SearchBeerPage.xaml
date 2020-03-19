@@ -4,12 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="JustBeerApp.Views.SearchBeerPage">
+             x:Class="JustBeerApp.Views.SearchBeerPage"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Grid>
                 <Entry Placeholder="Search for beers"
                    Text="{Binding BeerId}"
+                       TextColor="White"
+                       PlaceholderColor="Gray"
                        Margin="0,30,30,30"/>
                 <ImageButton Source="searchIcon" 
                        HeightRequest="30" 
@@ -18,7 +22,7 @@
                        BackgroundColor="Transparent"
                        Margin="0,30,0,30"/>
             </Grid>
-            
+
             <Label Text="Beer Name: " Style="{StaticResource LabelStyle}"/>
             <Label Text="{Binding Data.Beer.Name}"/>
             <Label Text="Beer Id:" Style="{StaticResource LabelStyle}"/>

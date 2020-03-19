@@ -11,6 +11,7 @@ using Prism.Ioc;
 using JustBeerApp.ViewModels;
 using JustBeerApp.Views;
 using Xamarin.Forms;
+using Plugin.CurrentActivity;
 
 namespace JustBeerApp.Droid
 {
@@ -26,6 +27,7 @@ namespace JustBeerApp.Droid
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App(new AndroidInitializer()));

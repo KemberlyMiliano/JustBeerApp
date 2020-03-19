@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using AVFoundation;
 using AVKit;
 using JustBeerApp.Controls;
-using JustBeerApp.iOS;
 using Foundation;
 using UIKit;
 using Xamarin.Forms;
@@ -13,9 +9,11 @@ using Xamarin.Forms.Platform.iOS;
 using System.IO;
 using CoreMedia;
 using System.ComponentModel;
+using JustBeerApp.iOS;
+using JustBeerApp.iOS.Renderers;
 
 [assembly: ExportRenderer(typeof(VideoPlayer), typeof(VideoPlayerRenderer))]
-namespace JustBeerApp.iOS
+namespace JustBeerApp.iOS.Renderers
 {
     public class VideoPlayerRenderer : ViewRenderer<VideoPlayer, UIView>
     {

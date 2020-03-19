@@ -17,7 +17,7 @@ namespace JustBeerApp
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new Uri(NavigationConstants.Tab, UriKind.Absolute));
+            NavigationService.NavigateAsync(new Uri(NavigationConstants.Tab, UriKind.Relative));
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -31,6 +31,7 @@ namespace JustBeerApp
             containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();
             containerRegistry.Register<IApiBeerService, ApiBeerService>();
             containerRegistry.RegisterForNavigation<RandomBeerDetailedPage, RandomBeerPageViewModel>();
+
         }
     }
 }

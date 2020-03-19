@@ -9,7 +9,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style x:Key="LabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="TextColor" Value="White"/>
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
