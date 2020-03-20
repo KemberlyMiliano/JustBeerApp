@@ -24,20 +24,15 @@
             </Grid>
             <Label Text="My Favorites"
                 VerticalOptions="Start"
-                   Style="{StaticResource BoldFont}"
+                   FontFamily="{StaticResource BoldFont}"
                    TextColor="White"
-                   FontSize="48"/>
-            
+                   FontSize="38"/>
+
             <Label Text="Save the content that you liked most!"
-                   Style="{StaticResource NormalFont}"
+                   FontFamily="{StaticResource NormalFont}"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand"
                    TextColor="Gray"/>
-            
-            <Button ImageSource="FavPlusIcon"
-                    CornerRadius="360"
-                    BackgroundColor="Gold"
-                    HorizontalOptions="End" HeightRequest="75" WidthRequest="75"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
