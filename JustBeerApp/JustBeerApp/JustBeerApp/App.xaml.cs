@@ -26,6 +26,7 @@ namespace JustBeerApp
             containerRegistry.RegisterForNavigation<MainAppPage, MainAppPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
+            containerRegistry.RegisterForNavigation<FavoritesListInfoPage, FavoritesListInfoPageViewModel>();
             containerRegistry.RegisterForNavigation<RandomBeerPage, RandomBeerPageViewModel>();
             containerRegistry.RegisterForNavigation<SearchBeerPage, SearchBeerPageViewModel>();
             containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();

@@ -21,19 +21,21 @@
                            TextColor="White"
                            FontFamily="{StaticResource BoldFont}"
                            FontSize="15"
-                           TextChanged="OnTextChanged"/>
+                           TextChanged="OnTextChanged"
+                           Text="{Binding BeerId}"/>
             </Grid>
+            <Button Command="{Binding Search}"
+                    Text="Search"/>
             <StackLayout Padding="20">
                 <Label Text="Beer Name: " Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.Name}"/>
+                <Label Text="{Binding Data.Beer.Name}" TextColor="Red"/>
                 <Label Text="Beer Id:" Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.Id}"/>
+                <Label Text="{Binding Data.Beer.Id}" TextColor="Red"/>
                 <Label Text="Beer Organic?: " Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.IsOrganic}"/>
+                <Label Text="{Binding Data.Beer.IsOrganic}" TextColor="Red"/>
                 <Label Text="Beer Creation Date: " Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.CreateDate}"/>
+                <Label Text="{Binding Data.Beer.CreateDate}" TextColor="Red"/>
             </StackLayout>
-
 
         </StackLayout>
     </ContentPage.Content>
