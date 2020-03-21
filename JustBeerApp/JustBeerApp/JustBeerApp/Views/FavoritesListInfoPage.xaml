@@ -10,7 +10,9 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
+                        <Image Source="{Binding Data.Beer.Labels.Icon}"/>
                         <Label Text="{Binding Data.Beer.Name}"/>
+                        <Label Text="{Binding Data.Beer.CreateName}"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
