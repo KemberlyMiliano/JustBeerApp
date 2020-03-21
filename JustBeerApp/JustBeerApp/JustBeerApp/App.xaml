@@ -13,6 +13,10 @@
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="GridStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="DarkGray"/>
+                <Setter Property="Opacity" Value="0.3"/>
+            </Style>
             <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
                 <On Platform="Android" Value="Raleway-Bold.ttf#Raleway" />
                 <On Platform="UWP" Value="/Assets/Raleway-Bold.ttf#Raleway" />
