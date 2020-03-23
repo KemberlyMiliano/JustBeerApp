@@ -17,6 +17,9 @@ namespace JustBeerApp.Models
         [JsonProperty("nameDisplay")]
         public string NameDisplay { get; set; }
 
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
         [JsonProperty("abv")]
         public string Abv { get; set; }
 
