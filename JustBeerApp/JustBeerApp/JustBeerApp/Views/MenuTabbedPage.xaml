@@ -8,8 +8,8 @@
              x:Class="JustBeerApp.Views.MenuTabbedPage"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
-            android:TabbedPage.BarItemColor ="White"
-            android:TabbedPage.BarSelectedItemColor ="#C8733E"
+            android:TabbedPage.BarItemColor ="Gray"
+            android:TabbedPage.BarSelectedItemColor ="White"
             BarBackgroundColor="Black">
     <TabbedPage.Children>
         <NavigationPage Title="Home" IconImageSource="homeIcon">
