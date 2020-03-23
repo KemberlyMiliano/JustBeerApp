@@ -4,12 +4,133 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="JustBeerApp.Views.BeerInfoPage">
+             x:Class="JustBeerApp.Views.BeerInfoPage"
+             xmlns:custom="clr-namespace:JustBeerApp.Controls;assembly=JustBeerApp"             
+             BackgroundColor="Black">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="FavPlusIcon.png"
+                     Order="Primary"
+                     Priority="0"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Margin="20" RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <custom:CircleImage Source="https://brewerydb-images.s3.amazonaws.com/beer/c4f2KE/upload_jjKJ7g-medium.png"
+                                Grid.ColumnSpan="2"
+                                Grid.Row="0"/>
+            <Label Text="Beer name"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   FontSize="25"
+                   Margin="0,0,0,40"
+                   FontFamily="{StaticResource BoldFont}"/>
+            
+            <Label Text="Abv"
+                   Grid.Column="0"
+                   Grid.Row="2"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Abv %"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Glass"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Glass type"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Is Organic?"
+                   Grid.Column="0"
+                   Grid.Row="4"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Organic ans"
+                   Grid.Column="1"
+                   Grid.Row="4"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Is Retired?"
+                   Grid.Column="0"
+                   Grid.Row="5"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Retired ans"
+                   Grid.Column="1"
+                   Grid.Row="5"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Style"
+                   Grid.Column="0"
+                   Grid.Row="6"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Style"
+                   Grid.Column="1"
+                   Grid.Row="6"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Status"
+                   Grid.Column="0"
+                   Grid.Row="7"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Status"
+                   Grid.Column="1"
+                   Grid.Row="7"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+
+            <Label Text="About Style"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="8"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   Margin="0,20,0,0"
+                   FontSize="20"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="Style info"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="9"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

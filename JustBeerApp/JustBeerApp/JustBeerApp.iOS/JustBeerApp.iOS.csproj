@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CircleImageRenderer.cs" />
     <Compile Include="Renderers\SearchPageRenderer.cs" />
     <Compile Include="Renderers\VideoPlayerRenderer.cs" />
     <None Include="Entitlements.plist" />
