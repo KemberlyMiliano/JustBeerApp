@@ -64,8 +64,6 @@
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
-
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

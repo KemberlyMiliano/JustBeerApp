@@ -5,38 +5,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.SearchBeerPage"
-             BackgroundColor="Black"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+            <Grid Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Search"
+                   FontSize="45"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"
+                HorizontalOptions="Center"
+                   Margin="0,70,0,0"
+                   Grid.Row="0"/>
 
-            <Grid BackgroundColor="#171717" 
-                  VerticalOptions="Start"
-                  HorizontalOptions="Fill"
-                  Padding="10">
-                <SearchBar CancelButtonColor="White"
-                       Placeholder="Search"
-                       PlaceholderColor="DarkGray"
+                <Frame Padding="5" Grid.Row="1" Margin="0,20,0,0" CornerRadius="5">
+                    <StackLayout Orientation="Horizontal" Padding="6">
+                        <Image 
+                        Source="searchIcon"
+                        HeightRequest="30"/>
+                        <Label
+                        Text="Beers"
+                        FontSize="16"
+                        VerticalOptions="Center"
+                        TextColor="#171717 "
+                        FontFamily="{StaticResource BoldFont}"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToSearchBeerPage}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </Frame>
+
+                <Label Grid.Row="2"
+                       Text="Top beers"
+                       FontSize="18"
                        VerticalOptions="Center"
-                           TextColor="White"
-                           FontFamily="{StaticResource BoldFont}"
-                           FontSize="15"
-                           TextChanged="OnTextChanged"
-                           Text="{Binding BeerId}"/>
-            </Grid>
-            <Button Command="{Binding Search}"
-                    Text="Search"/>
-            <StackLayout Padding="20">
-                <Label Text="Beer Name: " Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.Name}" TextColor="Red"/>
-                <Label Text="Beer Id:" Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.Id}" TextColor="Red"/>
-                <Label Text="Beer Organic?: " Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.IsOrganic}" TextColor="Red"/>
-                <Label Text="Beer Creation Date: " Style="{StaticResource LabelStyle}"/>
-                <Label Text="{Binding Data.Beer.CreateDate}" TextColor="Red"/>
-            </StackLayout>
+                       TextColor="White"
+                       FontFamily="{StaticResource BoldFont}"
+                       Margin="0,20,0,0"/>
 
-        </StackLayout>
+                <CollectionView Grid.Row="3">
+
+                </CollectionView>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

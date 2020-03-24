@@ -1,5 +1,6 @@
 ﻿using JustBeerApp.Models;
 using JustBeerApp.Services;
+using JustBeerApp.Views;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -22,6 +23,7 @@ namespace JustBeerApp.ViewModels
         public string BeerId { get; set; }
         public ObservableCollection<Data> Data { get; set; } = new ObservableCollection<Data>();
         public DelegateCommand Search { get; set; }
+        public DelegateCommand GoToSearchBeerPage { get; set; }
 
         public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
@@ -29,7 +31,13 @@ namespace JustBeerApp.ViewModels
             Search = new DelegateCommand(async () =>
             {
                 await GetBeerIngredientData();
-                
+
+            });
+
+            GoToSearchBeerPage = new DelegateCommand(async () =>
+            {
+                await navigation.NavigateAsync(NavigationConstants.SearchBeerDetailedPage);
+
             });
         }
 
@@ -57,6 +65,6 @@ namespace JustBeerApp.ViewModels
             IsRunning = false;
 
         }
-        
-        }
+
+    }
 }
