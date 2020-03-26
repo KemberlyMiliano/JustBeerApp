@@ -35,7 +35,7 @@ namespace JustBeerApp.ViewModels
             {
                 try
                 {
-                    BeerInfo = await ApiService.GetBeers(ID);
+                    BeerInfo = await ApiService.GetBeers("WHQisc");
                 }
                 catch (Exception ex)
                 {

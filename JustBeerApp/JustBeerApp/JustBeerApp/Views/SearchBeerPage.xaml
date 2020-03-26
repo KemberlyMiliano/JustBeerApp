@@ -44,13 +44,13 @@
                     </StackLayout>
                 </Frame>
 
-                <Label Grid.Row="2"
+                <!--<Label Grid.Row="2"
                        Text="Top beers"
                        FontSize="18"
                        VerticalOptions="Center"
                        TextColor="White"
                        FontFamily="{StaticResource BoldFont}"
-                       Margin="0,40,0,0"/>
+                       Margin="0,40,0,0"/>-->
 
                 <!--<CollectionView ItemsSource="{Binding HomeBeers}"  
                             Grid.Row="3">

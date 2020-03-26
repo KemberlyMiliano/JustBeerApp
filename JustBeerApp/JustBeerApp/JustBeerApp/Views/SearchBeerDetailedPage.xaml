@@ -9,7 +9,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
+            <StackLayout x:Name="searchLayout">
                 <Grid BackgroundColor="Gray" 
                   VerticalOptions="Start"
                   HorizontalOptions="Fill"
@@ -23,39 +23,33 @@
                         TextColor="White"
                         FontFamily="{StaticResource BoldFont}"
                         FontSize="15"
-                        Text="{Binding Filter, Mode=TwoWay}"
-                        TextChanged="BeersSearchBar_TextChanged"
-                        SearchCommand="{Binding SearchCommand}"/>
+                        TextChanged="BeersSearchBar_TextChanged"/>
                 </Grid>
-                <ListView 
-                    x:Name="SuggestionsListView"
-                HasUnevenRows="True">
-                    <ListView.ItemTemplate>
+                <CollectionView 
+                    x:Name="SuggestionsListView">
+                    <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal" Padding="10">
-                                    <Image 
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image 
                                             Source="{Binding Labels.Large}" 
                                            HeightRequest="60"
                                             WidthRequest="60"
                                            Margin="10,0,10,0"
                                             Aspect="Fill"/>
-                                    <Label 
+                                <Label 
                                            Text="{Binding NameDisplay}"    
                                            FontAttributes="Bold"
                                             TextColor="White"
                                            Margin="0,20,10,0"/>
 
-                                    <!--<StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding GoToBeerInfoPage}"
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToBeerInfoPage}"
                                                           CommandParameter="{Binding .}"/>
-                                    </StackLayout.GestureRecognizers>-->
-                                </StackLayout>
-                            </ViewCell>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

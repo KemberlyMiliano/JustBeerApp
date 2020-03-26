@@ -19,17 +19,12 @@ namespace JustBeerApp.ViewModels
 {
     public class SearchBeerPageViewModel : BaseViewModel
     {
-        protected IApiManager ApiManager = new ApiManager();
-        public bool IsRunning { get; set; }
-        public string BeerId { get; set; }
+        public Beers BeerList { get; set; } = new Beers();
         public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
-        public ObservableCollection<Datum> AuxiliarList { get; set; }
         public DelegateCommand GoToSearchBeerPage { get; set; }
         public DelegateCommand GoToBeerInfoPage { get; set; }
-        public Beers BeerList { get; set; } = new Beers();
         public DelegateCommand GetBeerList { get; set; }
-        public DelegateCommand RefreshCommand { get; set; }
-        public DelegateCommand SearchCommand { get; set; }
+
         public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
             GetBeerList = new DelegateCommand(async () =>
@@ -39,8 +34,6 @@ namespace JustBeerApp.ViewModels
             });
 
             GetBeerList.Execute();
-
-            AuxiliarList = HomeBeers;
 
             GoToSearchBeerPage = new DelegateCommand(async () =>
             {
@@ -52,18 +45,7 @@ namespace JustBeerApp.ViewModels
             {
                 await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
 
-
             });
-
-            SearchCommand = new DelegateCommand(() =>
-            {
-                Search();
-            });
-
-            RefreshCommand = new DelegateCommand(() =>
-           {
-               //await GetBeers();
-           });
 
         }
         public async Task GetBeers()
@@ -83,25 +65,6 @@ namespace JustBeerApp.ViewModels
                 }
             }
         }
-        public void Search()
-        {
-            IsRefreshing = true;
-
-
-            if (string.IsNullOrEmpty(Filter))
-            {
-                AuxiliarList.OrderBy(b => b.NameDisplay).ToList();
-            }
-            else
-            {
-                AuxiliarList.Where(b => b.NameDisplay.ToLower().Contains(Filter.ToLower())).OrderBy(b => b.NameDisplay);
-            }
-
-            IsRefreshing = false;
-        }
-        public string Filter { get; set; }
-
-        public bool IsRefreshing { get; set; }
 
     }
 

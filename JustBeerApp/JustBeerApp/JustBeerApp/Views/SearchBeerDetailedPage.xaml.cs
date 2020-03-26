@@ -25,13 +25,6 @@ namespace JustBeerApp.Views
             InitializeComponent();
         }
 
-        private void BeersSearchBar_SearchButtonPressed(object sender, EventArgs e)
-        {
-            var keyword = BeersSearchBar.Text;
-            var suggestions = HomeBeers.Where(b => b.NameDisplay.ToLower().Contains(keyword.ToLower()));
-            SuggestionsListView.ItemsSource = suggestions;
-
-        }
         public async Task GetBeers()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace JustBeerApp.ViewModels
 {
-    public class FavoritesListInfoPageViewModel : BaseViewModel 
+    public class FavoritesListInfoPageViewModel : BaseViewModel
     {
         protected IApiManager ApiManager = new ApiManager();
         public ObservableCollection<Data> Data { get; set; }
@@ -18,9 +18,9 @@ namespace JustBeerApp.ViewModels
         public string BeerId { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
         {
-            GetBeerData();
+            //GetBeerData2();
         }
-        public async Task GetBeerData()
+        public async Task GetBeerData2()
         {
             IsRunning = true;
             var result = await ApiManager.GetBeerAsync(BeerId);
