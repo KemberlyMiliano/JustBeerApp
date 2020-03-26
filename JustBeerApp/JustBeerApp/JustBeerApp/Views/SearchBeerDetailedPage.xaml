@@ -24,28 +24,15 @@
                         FontFamily="{StaticResource BoldFont}"
                         FontSize="15"
                         Text="{Binding Filter, Mode=TwoWay}"
+                        TextChanged="BeersSearchBar_TextChanged"
                         SearchCommand="{Binding SearchCommand}"/>
                 </Grid>
                 <ListView 
-                HasUnevenRows="True" 
-                IsPullToRefreshEnabled="True"
-                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
-                ItemsSource="{Binding HomeBeers}"
-                RefreshCommand="{Binding RefreshCommand}">
+                    x:Name="SuggestionsListView"
+                HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <!--<ViewCell.ContextActions>
-                                    <MenuItem 
-                                    Command="{Binding EditCommand}" 
-                                    Text="Edit">
-                                    </MenuItem>
-                                    <MenuItem 
-                                    Command="{Binding DeleteCommand}" 
-                                    IsDestructive="true"     
-                                    Text="Delete">
-                                    </MenuItem>
-                                </ViewCell.ContextActions>-->
                                 <StackLayout Orientation="Horizontal" Padding="10">
                                     <Image 
                                             Source="{Binding Labels.Large}" 
@@ -68,6 +55,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

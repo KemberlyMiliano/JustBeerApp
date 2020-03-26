@@ -52,6 +52,7 @@ namespace JustBeerApp.ViewModels
             {
                 await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
 
+
             });
 
             SearchCommand = new DelegateCommand(() =>
