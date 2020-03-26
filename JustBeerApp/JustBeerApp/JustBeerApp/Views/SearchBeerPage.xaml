@@ -52,8 +52,30 @@
                        FontFamily="{StaticResource BoldFont}"
                        Margin="0,20,0,0"/>
 
-                <CollectionView Grid.Row="3">
-
+                <CollectionView ItemsSource="{Binding HomeBeers}"  
+                            Grid.Row="3">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                 Span="2">
+                        </GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10,10,0,0">
+                                <Frame BackgroundColor="White" Grid.RowSpan="2" CornerRadius="5" Padding="1">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Labels.Icon}" 
+                                           HeightRequest="60"
+                                           Margin="10,0,10,0"/>
+                                        <Label Grid.Column="1"   
+                                           Text="{Binding NameDisplay}"    
+                                           FontAttributes="Bold"
+                                           Margin="0,20,10,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
                 </CollectionView>
             </Grid>
         </ScrollView>

@@ -19,10 +19,11 @@ namespace JustBeerApp.ViewModels
         public DelegateCommand AddToFavoritesCommand { get; set; }
         public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
-            GetBeerInfo();
+
             AddToFavoritesCommand = new DelegateCommand(async () =>
             {
-                await AddToFavorites(BeerInfo.Beer.Id);
+                await GetBeerInfo();
+                AddToFavorites(BeerInfo);
             });
         }
 
@@ -43,9 +44,9 @@ namespace JustBeerApp.ViewModels
             }
         }
 
-        public async Task AddToFavorites(string beerID)
+        public void AddToFavorites(Data beer)
         {
-            
+
         }
     }
 }
