@@ -8,7 +8,7 @@
              xmlns:custom="clr-namespace:JustBeerApp.Controls;assembly=JustBeerApp"             
              BackgroundColor="Black">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="FavPlusIcon.png"
+        <ToolbarItem IconImageSource="{Binding FavoriteIcon}"
                      Order="Primary"
                      Priority="0"/>
     </ContentPage.ToolbarItems>

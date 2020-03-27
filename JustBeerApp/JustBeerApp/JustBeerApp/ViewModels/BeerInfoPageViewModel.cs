@@ -14,16 +14,17 @@ namespace JustBeerApp.ViewModels
 {
     public class BeerInfoPageViewModel : BaseViewModel
     {
+        public string FavoriteIcon { get; set; }
         public string ID { get; set; }
         public Data BeerInfo { get; set; }
         public DelegateCommand AddToFavoritesCommand { get; set; }
+        public ObservableCollection<Beer> FavoriteList { get; set; }
         public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
-
+            GetBeerInfo();
             AddToFavoritesCommand = new DelegateCommand(async () =>
             {
-                await GetBeerInfo();
-                AddToFavorites(BeerInfo);
+                await AddToFavorites(BeerInfo.Beer);
             });
         }
 
@@ -35,7 +36,7 @@ namespace JustBeerApp.ViewModels
             {
                 try
                 {
-                    BeerInfo = await ApiService.GetBeers("WHQisc");
+                    BeerInfo = await ApiService.GetBeers(ID);
                 }
                 catch (Exception ex)
                 {
@@ -44,9 +45,10 @@ namespace JustBeerApp.ViewModels
             }
         }
 
-        public void AddToFavorites(Data beer)
+        public async Task AddToFavorites(Beer beerInformation)
         {
-
+            FavoriteList.Add(beerInformation); 
+             FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
         }
     }
 }
