@@ -8,26 +8,22 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="Black">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid Padding="20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Padding="20">
                 <Label Text="Search"
                    FontSize="45"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"
-                HorizontalOptions="Center"
-                   Margin="0,70,0,0"
-                   Grid.Row="0"/>
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Margin="0,100,0,0"/>
 
-                <Frame Padding="5" Grid.Row="1" Margin="0,20,0,0" CornerRadius="5">
+                <Frame Padding="5" Margin="0,20,0,0" CornerRadius="5">
                     <StackLayout Orientation="Horizontal" Padding="6">
                         <Image 
                         Source="searchIcon"
@@ -43,41 +39,7 @@
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </Frame>
-
-                <!--<Label Grid.Row="2"
-                       Text="Top beers"
-                       FontSize="18"
-                       VerticalOptions="Center"
-                       TextColor="White"
-                       FontFamily="{StaticResource BoldFont}"
-                       Margin="0,40,0,0"/>-->
-
-                <!--<CollectionView ItemsSource="{Binding HomeBeers}"  
-                            Grid.Row="3">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical"
-                                 Span="2">
-                        </GridItemsLayout>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Padding="10,10,0,0">
-                                <Frame BackgroundColor="Gray" Grid.RowSpan="2" CornerRadius="5" Padding="1">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding Labels.Large}" 
-                                           HeightRequest="60"
-                                           Margin="10,0,10,0"/>
-                                        <Label Grid.Column="1"   
-                                           Text="{Binding NameDisplay}"    
-                                           FontAttributes="Bold"
-                                           Margin="0,20,10,0"/>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>-->
-            </Grid>
-        </ScrollView>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

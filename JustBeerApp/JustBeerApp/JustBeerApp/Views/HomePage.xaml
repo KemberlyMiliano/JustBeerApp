@@ -7,7 +7,8 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.HomePage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Black">
+             BackgroundColor="Black"
+             x:Name="homePage">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -44,7 +45,8 @@
                     Margin="20,20,20,10"/>
 
             <CollectionView ItemsSource="{Binding HomeBeers}"  
-                            Grid.Row="2">
+                            Grid.Row="2"
+                            SelectedItem="{Binding SelectedBeer}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                                  Span="2">
@@ -63,7 +65,11 @@
                                            FontAttributes="Bold"
                                            Margin="0,20,10,0"/>
                                 </StackLayout>
-                            </Frame> 
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToInfoBeerPage, Source={x:Reference homePage}}"
+                                                      CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -94,6 +100,10 @@
                                    Text="{Binding NameDisplay}"    
                                    FontAttributes="Bold"
                                    TextColor="White"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToInfoBeerPage, Source={x:Reference homePage}}"
+                                                      CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
