@@ -25,7 +25,7 @@ namespace JustBeerApp.ViewModels
         public DelegateCommand GoToBeerInfoPage { get; set; }
         public DelegateCommand GetBeerList { get; set; }
 
-        public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
+        public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService, IApiManager apiManager) : base(navigation, apiService, pageDialogService, apiManager)
         {
             GetBeerList = new DelegateCommand(async () =>
             {

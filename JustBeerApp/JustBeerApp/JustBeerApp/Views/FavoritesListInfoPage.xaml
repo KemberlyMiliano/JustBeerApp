@@ -4,15 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="JustBeerApp.Views.FavoritesListInfoPage">
+             x:Class="JustBeerApp.Views.FavoritesListInfoPage"
+             BackgroundColor="Black">
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Data}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Image Source="{Binding Data.Beer.Labels.Icon}"/>
-                        <Label Text="{Binding Data.Beer.Name}"/>
-                        <Label Text="{Binding Data.Beer.CreateName}"/>
+                        <Label Text="{Binding Name}"/>
+                        <Label Text="{Binding CreateName}"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

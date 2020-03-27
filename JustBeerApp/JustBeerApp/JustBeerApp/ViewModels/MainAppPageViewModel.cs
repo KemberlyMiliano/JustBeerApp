@@ -11,7 +11,7 @@ namespace JustBeerApp.ViewModels
     public class MainAppPageViewModel : BaseViewModel
     {
         public DelegateCommand TabNavigacion { get; set; }
-        public MainAppPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
+        public MainAppPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService, IApiManager apiManager) : base(navigation, apiService, pageDialogService, apiManager)
         {
             var nav = new NavigationParameters();
             TabNavigacion = new DelegateCommand(async () =>

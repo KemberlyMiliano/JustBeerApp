@@ -20,7 +20,7 @@ namespace JustBeerApp.ViewModels
         public DelegateCommand GoBackCommand { get; set; }
         public bool IsBusy { get; set; }
         public string LongText { get; set; }
-        public RandomBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
+        public RandomBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService, IApiManager apiManager) : base(navigation, apiService, pageDialogService, apiManager)
         {
             LongText = "Lorem ipsum dolor sit amet, et qui noster dolorum, ea oblique maiorum nusquam his. Melius regione cu per. Ei mei sententiae percipitur. Has noster abhorreant no. Mel vidisse aliquip ei.";
             IsBusy = true;
