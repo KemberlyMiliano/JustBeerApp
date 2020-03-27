@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace JustBeerApp.ViewModels
 {
-    public class BeerInfoPageViewModel : BaseViewModel
+    public class BeerInfoPageViewModel : BaseViewModel, INavigatedAware
     {
         public string FavoriteIcon { get; set; }
         public string ID { get; set; }
@@ -49,6 +49,17 @@ namespace JustBeerApp.ViewModels
         public async Task AddToFavorites(Beer beerInformation)
         {
             FavoriteIcon = FavoriteIcon == "favoritesIcon.png" ? "orangeHeart.png" : "favoritesIcon.png";
+        }
+
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnNavigatedTo(INavigationParameters parameters)
+        {
+            var beer = parameters["Beer"] as Datum;
+            ID = beer.Id;
         }
     }
 }
