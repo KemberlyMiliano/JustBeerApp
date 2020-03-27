@@ -15,9 +15,11 @@ namespace JustBeerApp.ViewModels
 {
     public class HomePageViewModel : BaseViewModel, INotifyPropertyChanged
     {
+        public Datum SelectedBeer { get; set; }
         public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
         public Beers BeerList { get; set; } = new Beers();
         public DelegateCommand GetBeerList { get; set; }
+        public DelegateCommand GoToInfoBeerPage { get; set; }
         public HomePageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
             GetBeerList = new DelegateCommand(async () =>
@@ -27,6 +29,15 @@ namespace JustBeerApp.ViewModels
             });
 
             GetBeerList.Execute();
+
+            GoToInfoBeerPage = new DelegateCommand(async () =>
+            {
+                var nav = new NavigationParameters();
+                nav.Add("Beer", SelectedBeer);
+
+                await NavigationService.NavigateAsync(NavigationConstants.BeerInfoPage, nav);
+
+            });
         }
         public async Task GetBeers()
         {

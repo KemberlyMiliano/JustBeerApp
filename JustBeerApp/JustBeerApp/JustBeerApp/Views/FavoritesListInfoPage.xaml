@@ -6,18 +6,16 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.FavoritesListInfoPage"
              BackgroundColor="Black">
-    <StackLayout>
-        <ActivityIndicator Color="Gold"
-                           IsRunning="{Binding IsRunning}"/>
-        <ListView ItemsSource="{Binding Data}">
-            <ListView.ItemTemplate>
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Data}">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
                         <Label Text="{Binding Name}"/>
                         <Label Text="{Binding CreateName}"/>
                     </StackLayout>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
 </ContentPage>

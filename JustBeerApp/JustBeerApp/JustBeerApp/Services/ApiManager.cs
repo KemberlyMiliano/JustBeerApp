@@ -23,18 +23,18 @@ namespace JustBeerApp.Services
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet &&
-                    !Barrel.Current.IsExpired(key: Config.ApiListOfBeersUrl + Config.ApiKey))
+                    !Barrel.Current.IsExpired(key: Config.ApiUrl + Config.ApiKey))
                 {
                     await Task.Yield();
                     UserDialogs.Instance.Toast("Please check your internet connection", TimeSpan.FromSeconds(5));
-                    return Barrel.Current.Get<IEnumerable<Data>>(key: Config.ApiListOfBeersUrl + Config.ApiKey) ;
+                    return Barrel.Current.Get<IEnumerable<Data>>(key: Config.ApiUrl + Config.ApiKey) ;
                 }
 
                 var client = new HttpClient();
                 var json = await client.GetStringAsync(Config.ApiUrl + Config.ApiKey);
                 var Beers = JsonConvert.DeserializeObject<IEnumerable<Data>>(json);
 
-                Barrel.Current.Add(key: Config.ApiListOfBeersUrl + Config.ApiKey, data: Beers, expireIn: TimeSpan.FromDays(1));
+                Barrel.Current.Add(key: Config.ApiUrl, data: Beers, expireIn: TimeSpan.FromDays(1));
                 return Beers;
             }
             catch (Exception ex)

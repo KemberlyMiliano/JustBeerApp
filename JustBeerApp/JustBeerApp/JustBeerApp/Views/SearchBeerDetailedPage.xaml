@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.SearchBeerDetailedPage"
              BackgroundColor="Black"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             x:Name="searchPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout x:Name="searchLayout">
@@ -18,7 +19,7 @@
                         x:Name="BeersSearchBar"
                         CancelButtonColor="White"
                         Placeholder="Search"
-                        PlaceholderColor="#171717"
+                        PlaceholderColor="#161616"
                         VerticalOptions="Center"
                         TextColor="White"
                         FontFamily="{StaticResource BoldFont}"
@@ -26,7 +27,28 @@
                         TextChanged="BeersSearchBar_TextChanged"/>
                 </Grid>
                 <CollectionView 
-                    x:Name="SuggestionsListView">
+                    x:Name="SuggestionsListView"
+                    SelectedItem="{Binding SelectedBeer}">
+                    <!--<CollectionView.EmptyView>
+                        <StackLayout>
+                            <Image Source="searchIcon" Margin="0,120,0,0"/>
+                            <Label Text="Search Beers"
+                                   Margin="10,25,10,10"
+                                   FontAttributes="Bold"
+                                   FontFamily="{StaticResource BoldFont}"
+                                   TextColor="White"
+                                   FontSize="15"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center" />
+                            <Label Text="Find your favorite beer."
+                                   FontAttributes="Italic"
+                                   FontSize="12"
+                                   TextColor="White"
+                                   FontFamily="{StaticResource BoldFont}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </CollectionView.EmptyView>-->
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="10">
@@ -43,7 +65,7 @@
                                            Margin="0,20,10,0"/>
 
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding GoToBeerInfoPage}"
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToInfoBeerPage, Source={x:Reference searchPage}}"
                                                           CommandParameter="{Binding .}"/>
                                 </StackLayout.GestureRecognizers>
                             </StackLayout>
