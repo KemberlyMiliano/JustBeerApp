@@ -10,7 +10,9 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="{Binding FavoriteIcon}"
                      Order="Primary"
-                     Priority="0"/>
+                     Priority="0"
+                     Command="{Binding AddToFavoritesCommand}"/>
+                     
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
