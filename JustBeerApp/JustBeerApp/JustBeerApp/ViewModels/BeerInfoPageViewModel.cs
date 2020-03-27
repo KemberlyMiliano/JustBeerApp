@@ -16,19 +16,25 @@ namespace JustBeerApp.ViewModels
     {
         public string FavoriteIcon { get; set; }
         public string ID { get; set; }
+        public Datum NewBeer { get; set; } = new Datum();
         public Data BeerInfo { get; set; }
         public DelegateCommand AddToFavoritesCommand { get; set; }
-        public ObservableCollection<Data> FavoriteList { get; set; }
+        public ObservableCollection<Beer> FavoriteList { get; set; }
         public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
-            FavoriteIcon = "favoritesIcon.png";
             GetBeerInfo();
             AddToFavoritesCommand = new DelegateCommand(async () =>
             {
                 await AddToFavorites(BeerInfo.Beer);
             });
         }
-
+        public void Initialize(INavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Beer"))
+            {
+                NewBeer = parameters["Beer"] as Datum;
+            }
+        }
         public async Task GetBeerInfo()
         {
             bool internetAccess = await CheckInternetConnection();
@@ -48,7 +54,8 @@ namespace JustBeerApp.ViewModels
 
         public async Task AddToFavorites(Beer beerInformation)
         {
-            FavoriteIcon = FavoriteIcon == "favoritesIcon.png" ? "orangeHeart.png" : "favoritesIcon.png";
+            FavoriteList.Add(beerInformation);
+            FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

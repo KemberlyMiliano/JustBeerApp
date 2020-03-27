@@ -86,7 +86,8 @@
                           NumberOfSideItems="1"
                           PeekAreaInsets="10,10,10,10"
                           Margin="5"
-                          Grid.Row="4">
+                          Grid.Row="4"
+>
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12"/>
                 </CarouselView.ItemsLayout>
