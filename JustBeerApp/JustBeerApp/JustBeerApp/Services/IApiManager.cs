@@ -8,6 +8,6 @@ namespace JustBeerApp.Services
 {
     public interface IApiManager
     {
-        Task<IEnumerable<Data>> GetBeerAsync(string id);
+        Task<IEnumerable<Data>> GetBeerAsync();
     }
 }

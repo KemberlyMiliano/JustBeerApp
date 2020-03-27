@@ -1,5 +1,6 @@
 ﻿using JustBeerApp.Models;
 using JustBeerApp.Services;
+using JustBeerApp.Views;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -12,51 +13,59 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace JustBeerApp.ViewModels
 {
     public class SearchBeerPageViewModel : BaseViewModel
     {
-        protected IApiManager ApiManager = new ApiManager();
-        public bool IsRunning { get; set; }
-        public string BeerId { get; set; }
-        public ObservableCollection<Data> Data { get; set; } = new ObservableCollection<Data>();
-        public DelegateCommand Search { get; set; }
+        public Beers BeerList { get; set; } = new Beers();
+        public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
+        public DelegateCommand GoToSearchBeerPage { get; set; }
+        public DelegateCommand GoToBeerInfoPage { get; set; }
+        public DelegateCommand GetBeerList { get; set; }
 
         public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
-
-            Search = new DelegateCommand(async () =>
+            GetBeerList = new DelegateCommand(async () =>
             {
-                await GetBeerIngredientData();
-                
+                await GetBeers();
+
             });
-        }
 
-        public async Task GetBeerIngredientData()
+            GetBeerList.Execute();
+
+            GoToSearchBeerPage = new DelegateCommand(async () =>
+            {
+                await navigation.NavigateAsync(NavigationConstants.SearchBeerDetailedPage);
+
+            });
+
+            GoToBeerInfoPage = new DelegateCommand(async () =>
+            {
+                await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
+
+            });
+
+        }
+        public async Task GetBeers()
         {
-            //bool internetAccess = await CheckInternetConnection();
-            //if (internetAccess)
-            //{
-            //    try
-            //    {
-            //        Data = await ApiService.GetBeers(BeerId);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Debug.WriteLine($"API EXCEPTION {ex}");
-            //    }
+            bool internetAccess = await CheckInternetConnection();
 
-            //}
-            IsRunning = true;
-
-            var result = await ApiManager.GetBeerAsync(BeerId);
-            if (result != null)
-                Data = new ObservableCollection<Data>(result);
-
-            IsRunning = false;
-
+            if (internetAccess)
+            {
+                try
+                {
+                    BeerList = await ApiService.GetListOfBeers();
+                    HomeBeers = BeerList.Data;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"API EXCEPTION {ex}");
+                }
+            }
         }
-        
-        }
+
+    }
+
 }

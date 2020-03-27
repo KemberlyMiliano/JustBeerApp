@@ -18,7 +18,6 @@ namespace JustBeerApp.ViewModels
         public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
         public Beers BeerList { get; set; } = new Beers();
         public DelegateCommand GetBeerList { get; set; }
-        public DelegateCommand gggrg { get; set; }
         public HomePageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
             GetBeerList = new DelegateCommand(async () =>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="JustBeerApp.Views.SearchBeerDetailedPage"
+             BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="searchLayout">
+                <Grid BackgroundColor="Gray" 
+                  VerticalOptions="Start"
+                  HorizontalOptions="Fill"
+                  Padding="10">
+                    <SearchBar 
+                        x:Name="BeersSearchBar"
+                        CancelButtonColor="White"
+                        Placeholder="Search"
+                        PlaceholderColor="#171717"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        FontFamily="{StaticResource BoldFont}"
+                        FontSize="15"
+                        TextChanged="BeersSearchBar_TextChanged"/>
+                </Grid>
+                <CollectionView 
+                    x:Name="SuggestionsListView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image 
+                                            Source="{Binding Labels.Large}" 
+                                           HeightRequest="60"
+                                            WidthRequest="60"
+                                           Margin="10,0,10,0"
+                                            Aspect="Fill"/>
+                                <Label 
+                                           Text="{Binding NameDisplay}"    
+                                           FontAttributes="Bold"
+                                            TextColor="White"
+                                           Margin="0,20,10,0"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToBeerInfoPage}"
+                                                          CommandParameter="{Binding .}"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

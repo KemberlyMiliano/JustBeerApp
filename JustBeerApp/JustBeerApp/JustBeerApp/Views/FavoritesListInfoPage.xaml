@@ -4,18 +4,20 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="JustBeerApp.Views.FavoritesListInfoPage">
-    <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding Data}">
-            <CollectionView.ItemTemplate>
+             x:Class="JustBeerApp.Views.FavoritesListInfoPage"
+             BackgroundColor="Black">
+    <StackLayout>
+        <ActivityIndicator Color="Gold"
+                           IsRunning="{Binding IsRunning}"/>
+        <ListView ItemsSource="{Binding Data}">
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Image Source="{Binding Data.Beer.Labels.Icon}"/>
-                        <Label Text="{Binding Data.Beer.Name}"/>
-                        <Label Text="{Binding Data.Beer.CreateName}"/>
+                        <Label Text="{Binding Name}"/>
+                        <Label Text="{Binding CreateName}"/>
                     </StackLayout>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ContentPage.Content>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

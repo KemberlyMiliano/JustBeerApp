@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:JustBeerApp.Controls;assembly=JustBeerApp"
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.HomePage"
              NavigationPage.HasNavigationBar="False"
@@ -62,10 +63,8 @@
                                            FontAttributes="Bold"
                                            Margin="0,20,10,0"/>
                                 </StackLayout>
-                            </Frame>
+                            </Frame> 
                         </StackLayout>
-
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -88,7 +87,7 @@
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
-                            <Image Source="{Binding Labels.Large}"    
+                            <custom:CircleImage Source="{Binding Labels.Large}"    
                                    HeightRequest="100"    
                                    WidthRequest="30"/>
                             <Label Grid.Column="1"    

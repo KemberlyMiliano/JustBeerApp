@@ -32,7 +32,7 @@
 
         <NavigationPage Title="Favorites" IconImageSource="favoritesIcon">
             <x:Arguments>
-                <local:BeerInfoPage />
+                <local:FavoritesListInfoPage />
             </x:Arguments>
         </NavigationPage>
     </TabbedPage.Children>
