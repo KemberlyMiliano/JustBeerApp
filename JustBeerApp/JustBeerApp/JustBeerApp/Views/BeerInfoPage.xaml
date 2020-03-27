@@ -31,31 +31,31 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <custom:CircleImage Source="{Binding BeerInfo.Beer.Labels.Medium}"
+            <custom:CircleImage Source="{Binding NewBeer.Labels.Medium}"
                                 Grid.ColumnSpan="2"
                                 Grid.Row="0"/>
-            <Label Text="{Binding BeerInfo.Beer.Name}"
+            <Label Text="{Binding NewBeer.Name}"
                    Grid.ColumnSpan="2"
                    Grid.Row="1"
                    HorizontalOptions="Center"
                    TextColor="White"
                    FontSize="25"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.Description}"
+            <Label Text="{Binding NewBeer.Description}"
                    Grid.ColumnSpan="2"
                    Grid.Row="2"
                    HorizontalOptions="Center"
                    TextColor="White"
                    Margin="0,0,0,40"
                    FontFamily="{StaticResource NormalFont}"/>
-            
+
             <Label Text="Abv"
                    Grid.Column="0"
                    Grid.Row="3"
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.Abv}"
+            <Label Text="{Binding NewBeer.Abv}"
                    Grid.Column="1"
                    Grid.Row="3"
                    HorizontalOptions="Start"
@@ -67,7 +67,7 @@
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.Glass.Name}"
+            <Label Text="{Binding NewBeer.Glass.Name}"
                    Grid.Column="1"
                    Grid.Row="4"
                    HorizontalOptions="Start"
@@ -79,7 +79,7 @@
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.IsOrganic}"
+            <Label Text="{Binding NewBeer.IsOrganic}"
                    Grid.Column="1"
                    Grid.Row="5"
                    HorizontalOptions="Start"
@@ -91,7 +91,7 @@
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.IsRetired}"
+            <Label Text="{Binding NewBeer.IsRetired}"
                    Grid.Column="1"
                    Grid.Row="6"
                    HorizontalOptions="Start"
@@ -103,7 +103,7 @@
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.Style.Name}"
+            <Label Text="{Binding newBeer.Style.Name}"
                    Grid.Column="1"
                    Grid.Row="7"
                    HorizontalOptions="Start"
@@ -115,7 +115,7 @@
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding BeerInfo.Beer.Status}"
+            <Label Text="{Binding NewBeer.Status}"
                    Grid.Column="1"
                    Grid.Row="8"
                    HorizontalOptions="Start"

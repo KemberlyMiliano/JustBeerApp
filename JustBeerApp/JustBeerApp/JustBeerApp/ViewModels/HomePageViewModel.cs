@@ -15,7 +15,7 @@ namespace JustBeerApp.ViewModels
 {
     public class HomePageViewModel : BaseViewModel, INotifyPropertyChanged
     {
-        public Datum SelectedBeer { get; set; }
+        public Datum SelectedBeer { get; set; } = new Datum();
         public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
         public Beers BeerList { get; set; } = new Beers();
         public DelegateCommand GetBeerList { get; set; }

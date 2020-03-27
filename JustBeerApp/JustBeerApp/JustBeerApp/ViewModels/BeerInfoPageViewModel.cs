@@ -16,6 +16,7 @@ namespace JustBeerApp.ViewModels
     {
         public string FavoriteIcon { get; set; }
         public string ID { get; set; }
+        public Datum NewBeer { get; set; } = new Datum();
         public Data BeerInfo { get; set; }
         public DelegateCommand AddToFavoritesCommand { get; set; }
         public ObservableCollection<Beer> FavoriteList { get; set; }
@@ -27,7 +28,13 @@ namespace JustBeerApp.ViewModels
                 await AddToFavorites(BeerInfo.Beer);
             });
         }
-
+        public void Initialize(INavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Beer"))
+            {
+                NewBeer = parameters["Beer"] as Datum;
+            }
+        }
         public async Task GetBeerInfo()
         {
             bool internetAccess = await CheckInternetConnection();
@@ -47,8 +54,8 @@ namespace JustBeerApp.ViewModels
 
         public async Task AddToFavorites(Beer beerInformation)
         {
-            FavoriteList.Add(beerInformation); 
-             FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
+            FavoriteList.Add(beerInformation);
+            FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
         }
     }
 }
