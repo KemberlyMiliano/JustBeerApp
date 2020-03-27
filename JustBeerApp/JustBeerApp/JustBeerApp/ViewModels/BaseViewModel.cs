@@ -21,12 +21,11 @@ namespace JustBeerApp.ViewModels
         protected IApiManager ApiManager { get; set; }
         public Data RandomBeer { get; set; } = new Data();
 
-        public BaseViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService, IApiManager apiManager)
+        public BaseViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService)
         {
             NavigationService = navigationService;
             ApiService = apiService;
             PageDialogService = pageDialogService;
-            ApiManager = apiManager;
 
         }
         public async Task<bool> CheckInternetConnection()
