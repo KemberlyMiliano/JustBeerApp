@@ -17,13 +17,6 @@ namespace JustBeerApp.ViewModels
         public string BeerId { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
         {
-            GetBeerData2();
-        }
-        public async Task GetBeerData2()
-        {
-            var result = await ApiManager.GetBeerAsync();
-            if (result != null)
-                Data = new ObservableCollection<Data>(result);
         }
     }
 }
