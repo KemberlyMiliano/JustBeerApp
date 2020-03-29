@@ -18,7 +18,7 @@ namespace JustBeerApp.ViewModels
         protected INavigationService NavigationService { get; set; }
         protected IApiBeerService ApiService { get; set; }
         protected IPageDialogService PageDialogService { get; set; }
-        protected IApiManager ApiManager { get; set; }
+        protected IApiTestManager ApiManager { get; set; }
         public Data RandomBeer { get; set; } = new Data();
 
         public BaseViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService)
