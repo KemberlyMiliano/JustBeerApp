@@ -21,6 +21,8 @@ namespace JustBeerApp.ViewModels
         public bool IsBusy { get; set; }
         public RandomBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
+            IsBusy = true;
+
             GetRandomBeer = new DelegateCommand(async () =>
             {
                 await GetBeerData();
@@ -37,8 +39,11 @@ namespace JustBeerApp.ViewModels
             {
                 await navigation.GoBackAsync();
             });
+
         }
+
     }
+
 }
 
 
