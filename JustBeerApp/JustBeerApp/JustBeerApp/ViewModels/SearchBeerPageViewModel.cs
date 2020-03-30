@@ -19,11 +19,8 @@ namespace JustBeerApp.ViewModels
 {
     public class SearchBeerPageViewModel : BaseViewModel
     {
-        public Beers BeerList { get; set; } = new Beers();
-        public Datum SelectedBeer { get; set; }
-        public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();
         public DelegateCommand GoToSearchBeerPage { get; set; }
-        public DelegateCommand GoToInfoBeerPage { get; set; }
+        public DelegateCommand<Datum> GoToInfoBeerPage { get; set; }
         public DelegateCommand GetBeerList { get; set; }
 
         public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
@@ -42,33 +39,13 @@ namespace JustBeerApp.ViewModels
 
             });
 
-            GoToInfoBeerPage = new DelegateCommand(async () =>
+            GoToInfoBeerPage = new DelegateCommand<Datum>(async (param) =>
             {
                 var nav = new NavigationParameters();
-                nav.Add("Beer", SelectedBeer);
+                nav.Add("Beer", param);
 
                 await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
             });
-
         }
-        public async Task GetBeers()
-        {
-            bool internetAccess = await CheckInternetConnection();
-
-            if (internetAccess)
-            {
-                try
-                {
-                    BeerList = await ApiService.GetListOfBeers();
-                    HomeBeers = BeerList.Data;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"API EXCEPTION {ex}");
-                }
-            }
-        }
-
     }
-
 }
