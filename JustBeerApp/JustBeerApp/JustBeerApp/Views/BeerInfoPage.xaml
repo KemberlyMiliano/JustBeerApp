@@ -12,7 +12,7 @@
                      Order="Primary"
                      Priority="0"
                      Command="{Binding AddToFavoritesCommand}"/>
-                     
+
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -33,10 +33,10 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <custom:CircleImage Source="{Binding NewBeer.Labels.Medium}"
+            <custom:CircleImage Source="{Binding NewBeer.Labels.Large}"
                                 Grid.ColumnSpan="2"
                                 Grid.Row="0"/>
-            <Label Text="{Binding NewBeer.Name}"
+            <Label Text="{Binding NewBeer.NameDisplay}"
                    Grid.ColumnSpan="2"
                    Grid.Row="1"
                    HorizontalOptions="Center"

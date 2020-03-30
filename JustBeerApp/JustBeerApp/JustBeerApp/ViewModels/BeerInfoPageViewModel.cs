@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace JustBeerApp.ViewModels
 {
-    public class BeerInfoPageViewModel : BaseViewModel, INavigatedAware
+    public class BeerInfoPageViewModel : BaseViewModel, IInitialize
     {
         public string FavoriteIcon { get; set; }
         public string ID { get; set; }
@@ -35,6 +35,35 @@ namespace JustBeerApp.ViewModels
                 NewBeer = parameters["Beer"] as Datum;
             }
         }
+
+        //public override void Initialize(INavigationParameters parameters)
+        //{
+        //    try
+        //    {
+        //        if (!parameters.ContainsKey("DrinkId"))
+        //        {
+        //            ShowMessage(Constants.ErrorMessages.ErrorOccured, Constants.ErrorMessages.MissingParameter, Constants.ErrorMessages.Ok);
+        //            return;
+        //        }
+        //        IsLoading = true;
+        //        int drinkId = int.Parse(parameters["DrinkId"].ToString());
+        //        if (parameters.ContainsKey("Cocktail"))
+        //        {
+        //            Cocktail = parameters["Cocktail"] as Cocktail;
+        //        }
+        //        else
+        //        {
+        //            GetCocktail(drinkId);
+        //        }
+        //        FavoriteIcon = Cocktail.IsFavorite ? FavoriteFilledIcon : FavoriteEmptyIcon;
+        //        IsLoading = false;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        IsLoading = false;
+        //        ShowMessage(Constants.ErrorMessages.ErrorOccured, e.Message, Constants.ErrorMessages.Ok);
+        //    }
+        //}
         public async Task GetBeerInfo()
         {
             bool internetAccess = await CheckInternetConnection();
