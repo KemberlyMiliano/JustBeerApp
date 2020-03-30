@@ -22,7 +22,7 @@ namespace JustBeerApp.ViewModels
         {
             GetBeersMethod = new DelegateCommand(async () =>
             {
-                GetBeersData();
+                await GetBeersData();
             });
             GetBeersMethod.Execute();
         }

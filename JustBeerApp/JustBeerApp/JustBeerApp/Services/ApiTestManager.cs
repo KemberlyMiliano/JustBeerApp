@@ -14,7 +14,7 @@ namespace JustBeerApp.Services
 {
     public class ApiTestManager : IApiTestManager
     {
-        public ApiTestManager() 
+        public ApiTestManager()
         {
             Barrel.ApplicationId = "CachingDataTest";
         }
@@ -42,12 +42,11 @@ namespace JustBeerApp.Services
             catch (Exception ex)
             {
                 Debug.WriteLine($"API EXCEPTION {ex}");
-                await App.Current.MainPage.DisplayAlert("error", $"{ex}", "ok");
             }
             return null;
-        
+
         }
 
-        
+
     }
 }

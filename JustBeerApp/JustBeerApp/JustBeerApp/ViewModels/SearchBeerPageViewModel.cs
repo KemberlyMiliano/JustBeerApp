@@ -22,13 +22,11 @@ namespace JustBeerApp.ViewModels
         public DelegateCommand GoToSearchBeerPage { get; set; }
         public DelegateCommand<Datum> GoToInfoBeerPage { get; set; }
         public DelegateCommand GetBeerList { get; set; }
-
         public SearchBeerPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
             GetBeerList = new DelegateCommand(async () =>
             {
                 await GetBeers();
-
             });
 
             GetBeerList.Execute();
@@ -36,14 +34,12 @@ namespace JustBeerApp.ViewModels
             GoToSearchBeerPage = new DelegateCommand(async () =>
             {
                 await navigation.NavigateAsync(NavigationConstants.SearchBeerDetailedPage);
-
             });
 
             GoToInfoBeerPage = new DelegateCommand<Datum>(async (param) =>
             {
                 var nav = new NavigationParameters();
                 nav.Add("Beer", param);
-
                 await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
             });
         }
