@@ -19,14 +19,21 @@ namespace JustBeerApp.ViewModels
         public Datum NewBeer { get; set; } = new Datum();
         public Data BeerInfo { get; set; }
         public DelegateCommand AddToFavoritesCommand { get; set; }
+        public DelegateCommand GetBeerInformation { get; set; }
         public ObservableCollection<Beer> FavoriteList { get; set; }
         public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
-            GetBeerInfo();
             AddToFavoritesCommand = new DelegateCommand(async () =>
             {
                 await AddToFavorites(BeerInfo.Beer);
             });
+
+            GetBeerInformation = new DelegateCommand(async () =>
+            {
+                await GetBeerInfo(); ;
+            });
+
+            GetBeerInformation.Execute();
         }
         public void Initialize(INavigationParameters parameters)
         {
@@ -35,35 +42,6 @@ namespace JustBeerApp.ViewModels
                 NewBeer = parameters["Beer"] as Datum;
             }
         }
-
-        //public override void Initialize(INavigationParameters parameters)
-        //{
-        //    try
-        //    {
-        //        if (!parameters.ContainsKey("DrinkId"))
-        //        {
-        //            ShowMessage(Constants.ErrorMessages.ErrorOccured, Constants.ErrorMessages.MissingParameter, Constants.ErrorMessages.Ok);
-        //            return;
-        //        }
-        //        IsLoading = true;
-        //        int drinkId = int.Parse(parameters["DrinkId"].ToString());
-        //        if (parameters.ContainsKey("Cocktail"))
-        //        {
-        //            Cocktail = parameters["Cocktail"] as Cocktail;
-        //        }
-        //        else
-        //        {
-        //            GetCocktail(drinkId);
-        //        }
-        //        FavoriteIcon = Cocktail.IsFavorite ? FavoriteFilledIcon : FavoriteEmptyIcon;
-        //        IsLoading = false;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        IsLoading = false;
-        //        ShowMessage(Constants.ErrorMessages.ErrorOccured, e.Message, Constants.ErrorMessages.Ok);
-        //    }
-        //}
         public async Task GetBeerInfo()
         {
             bool internetAccess = await CheckInternetConnection();
