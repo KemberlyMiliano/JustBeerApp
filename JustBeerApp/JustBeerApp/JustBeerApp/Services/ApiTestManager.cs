@@ -19,7 +19,7 @@ namespace JustBeerApp.Services
             Barrel.ApplicationId = "CachingDataTest";
         }
 
-        public async Task<IEnumerable<Beers>> GetBeersAsync()
+        public async Task<IEnumerable<Datum>> GetBeersAsync()
         {
             try
             {
@@ -28,16 +28,17 @@ namespace JustBeerApp.Services
                 {
                     await Task.Yield();
                     UserDialogs.Instance.Toast("Please check your internet connection", TimeSpan.FromSeconds(5));
-                    return Barrel.Current.Get<IEnumerable<Beers>>(key: "https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517");
+                    var data = Barrel.Current.Get<Beers>(key: "https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517");
+                    return data.Data;
                 }
 
                 var client = new HttpClient();
                 var json = await client.GetStringAsync("https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517");
-                var Beers = JsonConvert.DeserializeObject<IEnumerable<Beers>>(json);
+                var Beers = JsonConvert.DeserializeObject<Beers>(json);
                 //Saves the cache and pass it a timespan for expiration
                 Barrel.Current.Add(key: "https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517", data: Beers, expireIn: TimeSpan.FromDays(1));
 
-                return Beers;
+                return Beers.Data;
             }
             catch (Exception ex)
             {

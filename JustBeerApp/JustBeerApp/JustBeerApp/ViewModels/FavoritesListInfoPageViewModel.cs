@@ -15,7 +15,7 @@ namespace JustBeerApp.ViewModels
     {
         protected IApiTestManager ApiTestManager = new ApiTestManager();
         public DelegateCommand GetBeersMethod { get; set; }
-        public ObservableCollection<Beers> Data { get; set; }
+        public ObservableCollection<Datum> Data { get; set; }
         public bool IsRunning { get; set; }
         public string BeerId { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
@@ -31,8 +31,8 @@ namespace JustBeerApp.ViewModels
         {
             var result = await ApiTestManager.GetBeersAsync();
             if (result != null)
-                Data = new ObservableCollection<Beers>(result);
-
+                Data = new ObservableCollection<Datum>(result);
+            var x = 1;
         }
     }
 }
