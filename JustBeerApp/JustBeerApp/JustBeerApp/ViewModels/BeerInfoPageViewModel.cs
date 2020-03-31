@@ -41,7 +41,6 @@ namespace JustBeerApp.ViewModels
             if (parameters.ContainsKey("Beer"))
             {
                 NewBeer = parameters["Beer"] as Datum;
-                ID = NewBeer.Id;
             }
         }
         public async Task GetBeerInfo()
