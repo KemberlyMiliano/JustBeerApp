@@ -8,6 +8,6 @@ namespace JustBeerApp.Services
 {
     public interface IApiTestManager
     {
-        Task<IEnumerable<Beers>>GetBeersAsync();
+        Task<IEnumerable<Datum>>GetBeersAsync();
     }
 }

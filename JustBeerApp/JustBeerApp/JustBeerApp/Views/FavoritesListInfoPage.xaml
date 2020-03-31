@@ -12,8 +12,8 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
-                        <Label Text="{Binding Name}"/>
-                        <Label Text="{Binding CreateName}"/>
+                        <Label Text="{Binding Name}" TextColor="White"/>
+                        <Label Text="{Binding Description}"/>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
