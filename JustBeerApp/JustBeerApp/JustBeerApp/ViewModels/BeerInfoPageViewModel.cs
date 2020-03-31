@@ -23,6 +23,7 @@ namespace JustBeerApp.ViewModels
         public ObservableCollection<Datum> FavoriteList { get; set; }
         public BeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {
+            FavoriteList = new ObservableCollection<Datum>();
             FavoriteIcon = "favoritesIcon.png";
             AddToFavoritesCommand = new DelegateCommand(async () =>
             {
@@ -61,7 +62,7 @@ namespace JustBeerApp.ViewModels
         }
 
         public async Task AddToFavorites(Datum beerInformation)
-        {            
+        {
             FavoriteList.Add(beerInformation);
             FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
         }
