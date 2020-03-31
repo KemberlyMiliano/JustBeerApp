@@ -105,7 +105,7 @@
                    HorizontalOptions="Start"
                    TextColor="White"
                    FontFamily="{StaticResource BoldFont}"/>
-            <Label Text="{Binding newBeer.Style.Name}"
+            <Label Text="{Binding NewBeer.Style.Name}"
                    Grid.Column="1"
                    Grid.Row="7"
                    HorizontalOptions="Start"
