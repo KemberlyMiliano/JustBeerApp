@@ -19,26 +19,26 @@ namespace JustBeerApp.Services
             Barrel.ApplicationId = "CachingDataTest";
         }
 
-        public async Task<IEnumerable<Datum>> GetBeersAsync()
+        public async Task<Data> GetBeersAsync(string ID)
         {
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet &&
-                    !Barrel.Current.IsExpired(key: "https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517"))
+                    !Barrel.Current.IsExpired(key: Config.ApiUrl + Config.ApiKey))
                 {
                     await Task.Yield();
                     UserDialogs.Instance.Toast("Please check your internet connection", TimeSpan.FromSeconds(5));
-                    var data = Barrel.Current.Get<Beers>(key: "https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517");
-                    return data.Data;
+                    var data = Barrel.Current.Get<Data>(key: Config.ApiUrl + Config.ApiKey);
+                    return data;
                 }
 
                 var client = new HttpClient();
-                var json = await client.GetStringAsync("https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517");
-                var Beers = JsonConvert.DeserializeObject<Beers>(json);
-                //Saves the cache and pass it a timespan for expiration
-                Barrel.Current.Add(key: "https://sandbox-api.brewerydb.com/v2/beers/?key=0eca4558813950961ce12aec376f2517", data: Beers, expireIn: TimeSpan.FromDays(1));
+                var json = await client.GetStringAsync(Config.ApiUrl + ID + Config.ApiKey);
+                var Beers = JsonConvert.DeserializeObject<Data>(json);
 
-                return Beers.Data;
+                Barrel.Current.Add(key: Config.ApiUrl + Config.ApiKey, data: Beers, expireIn: TimeSpan.FromDays(1));
+
+                return  null;
             }
             catch (Exception ex)
             {
@@ -48,6 +48,10 @@ namespace JustBeerApp.Services
 
         }
 
-
+        public async Task<Beer> ShowDataAsync()
+        {
+            var data = Barrel.Current.Get<Data>(key: Config.ApiUrl + Config.ApiKey);
+            return data.Beer;
+        }
     }
 }

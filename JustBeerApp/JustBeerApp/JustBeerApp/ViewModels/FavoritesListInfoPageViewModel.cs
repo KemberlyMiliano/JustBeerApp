@@ -6,17 +6,20 @@ using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace JustBeerApp.ViewModels
 {
-    public class FavoritesListInfoPageViewModel : BaseViewModel
+    public class FavoritesListInfoPageViewModel : BaseViewModel 
     {
         protected IApiTestManager ApiTestManager = new ApiTestManager();
         public DelegateCommand GetBeersMethod { get; set; }
-        public ObservableCollection<Datum> Data { get; set; }
-        public bool IsRunning { get; set; }
+        public DelegateCommand RefreshCommand { get; set; }
+        public ObservableCollection<Beer> Data { get; set; } = new ObservableCollection<Beer>();
+        public bool IsRefreshing { get; set; }
         public string BeerId { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
         {
@@ -25,14 +28,25 @@ namespace JustBeerApp.ViewModels
                 await GetBeersData();
             });
             GetBeersMethod.Execute();
+
+            RefreshCommand = new DelegateCommand(async () => 
+            {
+                IsRefreshing = true;
+                await GetBeersData();
+                IsRefreshing = false;
+            });
+
+        }
+        public void RefreshMethod() 
+        {
+            
         }
 
         public async Task GetBeersData()
         {
-            var result = await ApiTestManager.GetBeersAsync();
+            var result = await ApiTestManager.ShowDataAsync();
             if (result != null)
-                Data = new ObservableCollection<Datum>(result);
-            var x = 1;
+                Data.Add(result);
         }
     }
 }

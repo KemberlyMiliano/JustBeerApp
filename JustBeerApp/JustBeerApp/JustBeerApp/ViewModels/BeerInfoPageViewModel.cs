@@ -14,6 +14,7 @@ namespace JustBeerApp.ViewModels
 {
     public class BeerInfoPageViewModel : BaseViewModel, IInitialize
     {
+        protected IApiTestManager ApiTestManager = new ApiTestManager();
         public string FavoriteIcon { get; set; }
         public string ID { get; set; }
         public Datum NewBeer { get; set; } = new Datum();
@@ -64,6 +65,7 @@ namespace JustBeerApp.ViewModels
         public async Task AddToFavorites(Datum beerInformation)
         {
             FavoriteList.Add(beerInformation);
+            await ApiTestManager.GetBeersAsync(beerInformation.Id);
             FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
         }
     }
