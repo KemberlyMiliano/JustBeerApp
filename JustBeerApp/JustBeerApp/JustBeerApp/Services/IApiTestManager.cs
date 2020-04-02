@@ -10,5 +10,7 @@ namespace JustBeerApp.Services
     {
         Task<Data>GetBeersAsync(string ID);
         Task<Beer> ShowDataAsync();
+
+        void RemoveData();
     }
 }

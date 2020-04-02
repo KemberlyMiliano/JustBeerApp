@@ -53,5 +53,10 @@ namespace JustBeerApp.Services
             var data = Barrel.Current.Get<Data>(key: Config.ApiUrl + Config.ApiKey);
             return data.Beer;
         }
+
+        public void RemoveData()
+        {
+            Barrel.Current.Empty(key: Config.ApiUrl + Config.ApiKey);
+        }
     }
 }

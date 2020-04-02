@@ -18,27 +18,44 @@
                        Grid.Row="0"
                    FontFamily="{StaticResource BoldFont}"
                    TextColor="White"
-                   FontSize="38"
+                   FontSize="48"
                    VerticalOptions="Start"
                        Margin="0,50,0,0"/>
 
                 <RefreshView IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}" RefreshColor="Gold">
-                    <CollectionView ItemsSource="{Binding Data}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <StackLayout Orientation="Horizontal" Padding="10">
-                                <Image 
+                    <CollectionView ItemsSource="{Binding Data}" SelectionMode="Single" SelectionChangedCommand="{Binding RemoveBeersCommand}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Image 
                                      Source="{Binding Labels.Large}" 
                                       HeightRequest="60"
                                       WidthRequest="60"
                                       Margin="10,0,10,0"/>
-                                <Label 
+                                    <Label 
                                    Text="{Binding NameDisplay}" TextColor="White"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <StackLayout HorizontalOptions="Center">
+                                <Label Text="Save your favorite beers here."
+                                     Margin="10,25,10,10"
+                                     FontAttributes="Bold"
+                                     FontSize="18"
+                                     HorizontalOptions="Fill"
+                                     HorizontalTextAlignment="Center" 
+                                       TextColor="White"/>
+                                <Label Text="Get started"
+                                  FontAttributes="Italic"
+                                  FontSize="12"
+                                  HorizontalOptions="Fill"
+                                  HorizontalTextAlignment="Center"
+                                       TextColor="White"/>
                             </StackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
               </RefreshView>
             </StackLayout>
         </Grid>
