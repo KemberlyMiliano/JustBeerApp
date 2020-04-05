@@ -25,10 +25,10 @@
     <EmbeddedResource Update="Views\BeerInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FavoritesListInfoPage.xaml">
+    <EmbeddedResource Update="Views\FavoriteBeerInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FavoritesPage.xaml">
+    <EmbeddedResource Update="Views\FavoritesListInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">

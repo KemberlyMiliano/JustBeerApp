@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:JustBeerApp.Controls"
+             mc:Ignorable="d"
+             x:Class="JustBeerApp.Views.FavoriteBeerInfoPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <Grid Margin="20" RowSpacing="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <custom:CircleImage Source="{Binding FavBeerInfo.Labels.Large}"
+                                Grid.ColumnSpan="2"
+                                Grid.Row="0"/>
+            <Label Text="{Binding FavBeerInfo.NameDisplay}"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   FontSize="25"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.Description}"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="2"
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   Margin="0,0,0,40"
+                   FontFamily="{StaticResource NormalFont}"/>
+
+            <Label Text="Abv"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.Abv}"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Glass"
+                   Grid.Column="0"
+                   Grid.Row="4"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.Glass.Name}"
+                   Grid.Column="1"
+                   Grid.Row="4"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Is Organic?"
+                   Grid.Column="0"
+                   Grid.Row="5"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.IsOrganic}"
+                   Grid.Column="1"
+                   Grid.Row="5"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Is Retired?"
+                   Grid.Column="0"
+                   Grid.Row="6"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.IsRetired}"
+                   Grid.Column="1"
+                   Grid.Row="6"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Style"
+                   Grid.Column="0"
+                   Grid.Row="7"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.Style.Name}"
+                   Grid.Column="1"
+                   Grid.Row="7"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+            <Label Text="Status"
+                   Grid.Column="0"
+                   Grid.Row="8"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"/>
+            <Label Text="{Binding FavBeerInfo.Status}"
+                   Grid.Column="1"
+                   Grid.Row="8"
+                   HorizontalOptions="Start"
+                   TextColor="White"
+                   FontFamily="{StaticResource NormalFont}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

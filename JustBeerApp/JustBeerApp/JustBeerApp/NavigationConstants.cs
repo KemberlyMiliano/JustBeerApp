@@ -11,6 +11,7 @@ namespace JustBeerApp
         public const string BeerInfoPage = "BeerInfoPage";
         public const string RandomBeerDetailedPage = "RandomBeerDetailedPage";
         public const string SearchBeerDetailedPage = "SearchBeerDetailedPage";
+        public const string FavoriteBeerInfoPage = "FavoriteBeerInfoPage";
 
     }
 }

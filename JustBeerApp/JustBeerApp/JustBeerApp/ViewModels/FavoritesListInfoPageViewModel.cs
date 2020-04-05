@@ -20,6 +20,7 @@ namespace JustBeerApp.ViewModels
         public DelegateCommand GetBeersCommand { get; set; }
         public DelegateCommand RemoveBeersCommand { get; set; }
         public DelegateCommand RefreshCommand { get; set; }
+        public DelegateCommand<Beer> GoToBeerInfo { get; set; }
         public ObservableCollection<Beer> Data { get; set; } = new ObservableCollection<Beer>();
         public Beer test { get; set; }
         public bool IsRefreshing { get; set; }
@@ -42,6 +43,14 @@ namespace JustBeerApp.ViewModels
                 IsRefreshing = true;
                 await GetBeersData(test);
                 IsRefreshing = false;
+            });
+
+            GoToBeerInfo = new DelegateCommand<Beer>(async (param) =>
+            {
+                var nav = new NavigationParameters();
+                nav.Add("BeerInfo", param);
+
+                await NavigationService.NavigateAsync(NavigationConstants.FavoriteBeerInfoPage, nav);
             });
 
         }

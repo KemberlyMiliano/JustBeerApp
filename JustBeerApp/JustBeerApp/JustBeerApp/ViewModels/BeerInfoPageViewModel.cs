@@ -42,7 +42,7 @@ namespace JustBeerApp.ViewModels
         {
             if (parameters.ContainsKey("Beer"))
             {
-                NewBeer = parameters["Beer"] as Datum;
+                NewBeer = parameters["Beer"] as Datum;  
             }
         }
         public async Task GetBeerInfo()

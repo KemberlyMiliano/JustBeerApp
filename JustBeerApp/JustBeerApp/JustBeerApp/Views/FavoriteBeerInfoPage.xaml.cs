@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace JustBeerApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FavoritesPage : ContentPage
+    public partial class FavoriteBeerInfoPage : ContentPage
     {
-        public FavoritesPage()
+        public FavoriteBeerInfoPage()
         {
             InitializeComponent();
         }
