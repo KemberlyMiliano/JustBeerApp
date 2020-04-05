@@ -35,5 +35,7 @@
 	<string>JustBeerApp</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+  <key>NSFaceIDUsageDescription</key>
+  <string>We need to verify that you're human</string>
 </dict>
 </plist>
