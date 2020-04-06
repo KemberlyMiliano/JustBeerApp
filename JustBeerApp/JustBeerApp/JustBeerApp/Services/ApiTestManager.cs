@@ -4,6 +4,7 @@ using MonkeyCache.FileStore;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
@@ -14,13 +15,18 @@ namespace JustBeerApp.Services
 {
     public class ApiTestManager : IApiTestManager
     {
+        public ObservableCollection<Beer> GetData { get; set; } = new ObservableCollection<Beer>();
+        public Beer Remove { get; set; } = new Beer();
         public ApiTestManager()
         {
             Barrel.ApplicationId = "CachingDataTest";
         }
 
-        public async Task<Data> GetBeersAsync(string ID)
+        public async Task<ObservableCollection<Beer>> GetBeersAsync(string ID)
         {
+            byte p = 0;
+            byte n = 0;
+            byte s = 0;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet &&
@@ -28,16 +34,37 @@ namespace JustBeerApp.Services
                 {
                     await Task.Yield();
                     UserDialogs.Instance.Toast("Please check your internet connection", TimeSpan.FromSeconds(5));
-                    var data = Barrel.Current.Get<Data>(key: Config.ApiUrl + Config.ApiKey);
-                    return data;
+                    do
+                    {
+
+                        string m;
+                        m = n.ToString();
+                        var rata = Barrel.Current.Get<Data>(key: m);
+                        if (rata != null)
+                            GetData.Add(rata.Beer);
+                        else
+                            s++;
+                        n++;
+                    } while (s != 1);
+                    return GetData;
                 }
 
                 var client = new HttpClient();
                 var json = await client.GetStringAsync(Config.ApiUrl + ID + Config.ApiKey);
                 var Beers = JsonConvert.DeserializeObject<Data>(json);
 
-                Barrel.Current.Add(key: Config.ApiUrl + Config.ApiKey, data: Beers, expireIn: TimeSpan.FromDays(1));
-
+                do
+                {
+                    string m;
+                    m = n.ToString();
+                    var data = Barrel.Current.Get<Data>(key: m);
+                    if (data == null)
+                    {
+                        Barrel.Current.Add(key: m, data: Beers, expireIn: TimeSpan.FromDays(1));
+                        p++;
+                    }
+                    n++;
+                } while (p != 1);
                 return  null;
             }
             catch (Exception ex)
@@ -48,15 +75,42 @@ namespace JustBeerApp.Services
 
         }
 
-        public async Task<Beer> ShowDataAsync()
+        public async Task<ObservableCollection<Beer>> ShowDataAsync()
         {
-            var data = Barrel.Current.Get<Data>(key: Config.ApiUrl + Config.ApiKey);
-            return data.Beer;
+            byte s = 0;
+            byte n = 0;
+            do
+            {
+
+                string m;
+                m = n.ToString();
+                var rata = Barrel.Current.Get<Data>(key: m);
+                if (rata != null)
+                    GetData.Add(rata.Beer);
+                else
+                    s++;
+                n++;
+            } while (s != 1);
+            return GetData;
         }
 
-        public void RemoveData()
+        public void RemoveData(Beer beerparam)
         {
-            Barrel.Current.Empty(key: Config.ApiUrl + Config.ApiKey);
+            byte n = 0;
+            byte s = 0;
+            do
+            {
+                string m;
+                m = n.ToString();
+                var rata = Barrel.Current.Get<Data>(key: m);
+                Remove = rata.Beer;
+                if (Remove.Id == beerparam.Id)
+                {
+                    Barrel.Current.Empty(key: m);
+                    s++;
+                }
+                n++;
+            } while (s != 1);
         }
     }
 }

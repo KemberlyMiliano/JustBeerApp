@@ -1,7 +1,7 @@
 ﻿using JustBeerApp.Models;
 using JustBeerApp.Services;
-using Plugin.Fingerprint;
-using Plugin.Fingerprint.Abstractions;
+//using Plugin.Fingerprint;
+//using Plugin.Fingerprint.Abstractions;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;

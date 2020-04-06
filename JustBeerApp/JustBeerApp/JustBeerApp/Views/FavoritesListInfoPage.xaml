@@ -39,6 +39,8 @@
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToBeerInfo, Source={x:Reference FavoritePage}}"
                                                               CommandParameter="{Binding .}"/>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveBeersCommand, Source={x:Reference FavoritePage}}"
+                                                              CommandParameter="{Binding .}"/>
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
                             </DataTemplate>

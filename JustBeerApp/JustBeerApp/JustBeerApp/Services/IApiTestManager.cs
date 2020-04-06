@@ -1,6 +1,7 @@
 ﻿using JustBeerApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,9 +9,9 @@ namespace JustBeerApp.Services
 {
     public interface IApiTestManager
     {
-        Task<Data>GetBeersAsync(string ID);
-        Task<Beer> ShowDataAsync();
+        Task<ObservableCollection<Beer>>GetBeersAsync(string ID);
+        Task<ObservableCollection<Beer>> ShowDataAsync();
 
-        void RemoveData();
+        void RemoveData(Beer Param);
     }
 }
