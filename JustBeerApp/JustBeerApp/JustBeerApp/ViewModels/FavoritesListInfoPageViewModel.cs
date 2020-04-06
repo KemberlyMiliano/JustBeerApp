@@ -18,33 +18,30 @@ namespace JustBeerApp.ViewModels
     {
         protected IApiTestManager ApiTestManager = new ApiTestManager();
         public DelegateCommand GetBeersCommand { get; set; }
-        public DelegateCommand<Beer> RemoveBeersCommand { get; set; }
+        public DelegateCommand RemoveBeersCommand { get; set; }
         public DelegateCommand RefreshCommand { get; set; }
         public DelegateCommand<Beer> GoToBeerInfo { get; set; }
         public ObservableCollection<Beer> Data { get; set; } = new ObservableCollection<Beer>();
+        public Beer test { get; set; }
         public bool IsRefreshing { get; set; }
+        public string BeerId { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
         {
             GetBeersCommand = new DelegateCommand(async () =>
             {
-                await GetBeersData();
+                await GetBeersData(test);
             });
             GetBeersCommand.Execute();
 
-            RemoveBeersCommand = new DelegateCommand<Beer>(async (param) =>
+            RemoveBeersCommand = new DelegateCommand(async () =>
             {
-                IsRefreshing = true;
-                Data.Clear();
-                await RemoveBeers(param);
-                await GetBeersData();
-                IsRefreshing = false;
+                await RemoveBeers();
             });
 
             RefreshCommand = new DelegateCommand(async () => 
             {
                 IsRefreshing = true;
-                Data.Clear();
-                await GetBeersData();
+                await GetBeersData(test);
                 IsRefreshing = false;
             });
 
@@ -57,16 +54,16 @@ namespace JustBeerApp.ViewModels
             });
 
         }
-        public async Task GetBeersData()
+        public async Task GetBeersData(Beer beer)
         {
             try
             {
-                var beer = await ApiTestManager.ShowDataAsync();
+                beer = await ApiTestManager.ShowDataAsync();
                 if (beer != null)
                 {
                     if (Data == null)
                         Data = new ObservableCollection<Beer>();
-                    Data = beer;
+                    Data.Add(beer);
                 }
             }
             catch (Exception ex)
@@ -76,10 +73,9 @@ namespace JustBeerApp.ViewModels
             }
         }
 
-        public async Task RemoveBeers(Beer beerParam)
+        public async Task RemoveBeers()
         {
-
-            ApiTestManager.RemoveData(beerParam);
+            ApiTestManager.RemoveData();
             
         }
     }

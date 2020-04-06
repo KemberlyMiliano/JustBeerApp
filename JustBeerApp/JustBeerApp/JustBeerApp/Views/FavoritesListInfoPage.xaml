@@ -22,6 +22,7 @@
                    FontSize="48"
                    VerticalOptions="Start"
                        Margin="0,50,0,0"/>
+
                 <RefreshView IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}" RefreshColor="Gold">
                     <CollectionView ItemsSource="{Binding Data}">
@@ -38,9 +39,6 @@
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToBeerInfo, Source={x:Reference FavoritePage}}"
                                                               CommandParameter="{Binding .}"/>
-                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveBeersCommand, Source={x:Reference FavoritePage}}"
-                                                              CommandParameter="{Binding .}" NumberOfTapsRequired="2"/>
-                                            
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>
                             </DataTemplate>
