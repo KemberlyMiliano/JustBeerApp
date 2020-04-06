@@ -1,5 +1,7 @@
 ﻿using JustBeerApp.Models;
 using JustBeerApp.Services;
+using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -33,7 +35,7 @@ namespace JustBeerApp.ViewModels
 
             GetBeerInformation = new DelegateCommand(async () =>
             {
-                await GetBeerInfo(); ;
+                await GetBeerInfo();
             });
 
             GetBeerInformation.Execute();

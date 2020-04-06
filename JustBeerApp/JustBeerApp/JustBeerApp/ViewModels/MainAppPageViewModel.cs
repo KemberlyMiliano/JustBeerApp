@@ -1,4 +1,6 @@
 ﻿using JustBeerApp.Services;
+using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -15,7 +17,16 @@ namespace JustBeerApp.ViewModels
         {
             TabNavigacion = new DelegateCommand(async () =>
             {
-                await NavigationService.NavigateAsync(NavigationConstants.TabbedMenu);
+                var request = new AuthenticationRequestConfiguration("Use your fingerprint", "We need to verify your humanity!");
+                var result = await CrossFingerprint.Current.AuthenticateAsync(request);
+                if (result.Authenticated)
+                {
+                    await NavigationService.NavigateAsync(NavigationConstants.TabbedMenu);
+                }
+                else
+                {
+                    await pageDialogService.DisplayAlertAsync("Results are here", "Invalid fingerprint", "Ok");
+                }
             });
         }
     }

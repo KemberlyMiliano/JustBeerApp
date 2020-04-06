@@ -12,6 +12,7 @@ using JustBeerApp.ViewModels;
 using JustBeerApp.Views;
 using Xamarin.Forms;
 using Plugin.CurrentActivity;
+using Plugin.Fingerprint;
 
 namespace JustBeerApp.Droid
 {
@@ -24,6 +25,7 @@ namespace JustBeerApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            CrossFingerprint.SetCurrentActivityResolver(() => this);
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
