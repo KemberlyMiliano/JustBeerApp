@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace JustBeerApp.Services
 {
-    public interface IApiTestManager
+    public interface IApiManager
     {
-        Task<ObservableCollection<Beer>>GetBeersAsync(string ID);
+        Task<ObservableCollection<Beer>> GetBeersAsync(string ID);
         Task<ObservableCollection<Beer>> ShowDataAsync();
 
         void RemoveData(Beer Param);

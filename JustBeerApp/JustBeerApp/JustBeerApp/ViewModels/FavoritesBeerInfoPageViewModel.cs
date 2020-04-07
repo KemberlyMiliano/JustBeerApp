@@ -15,7 +15,6 @@ namespace JustBeerApp.ViewModels
 {
     public class FavoritesBeerInfoPageViewModel : BaseViewModel , INavigationAware
     {
-        protected IApiTestManager ApiTestManager = new ApiTestManager();
         public Beer FavBeerInfo { get; set; } = new Beer();
         public FavoritesBeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
         {

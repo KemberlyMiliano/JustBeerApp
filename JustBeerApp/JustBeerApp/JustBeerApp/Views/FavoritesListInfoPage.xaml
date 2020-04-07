@@ -25,8 +25,8 @@
 
                 <RefreshView IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}" RefreshColor="Gold">
-                    <CollectionView ItemsSource="{Binding Data}">
-                        <CollectionView.ItemTemplate>
+                    <CollectionView ItemsSource="{Binding Data}" BackgroundColor="Gold">
+                        <CollectionView.ItemTemplate>   
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal" Padding="10">
                                     <Image 
@@ -37,9 +37,7 @@
                                     <Label 
                                    Text="{Binding NameDisplay}" TextColor="White"/>
                                     <StackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToBeerInfo, Source={x:Reference FavoritePage}}"
-                                                              CommandParameter="{Binding .}"/>
-                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.RemoveBeersCommand, Source={x:Reference FavoritePage}}"
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.ActionSheetCommand, Source={x:Reference FavoritePage}}"
                                                               CommandParameter="{Binding .}"/>
                                     </StackLayout.GestureRecognizers>
                                 </StackLayout>

@@ -31,7 +31,7 @@ namespace JustBeerApp
             containerRegistry.RegisterForNavigation<SearchBeerPage, SearchBeerPageViewModel>();
             containerRegistry.RegisterForNavigation<BeerInfoPage, BeerInfoPageViewModel>();
             containerRegistry.Register<IApiBeerService, ApiBeerService>();
-            containerRegistry.Register<IApiTestManager, ApiTestManager>();
+            containerRegistry.Register<IApiManager, ApiManager>();
             containerRegistry.RegisterForNavigation<RandomBeerDetailedPage, RandomBeerPageViewModel>();
             containerRegistry.RegisterForNavigation<SearchBeerDetailedPage, SearchBeerPageViewModel>();
 

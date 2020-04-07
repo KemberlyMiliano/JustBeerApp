@@ -13,20 +13,18 @@ using Xamarin.Essentials;
 
 namespace JustBeerApp.Services
 {
-    public class ApiTestManager : IApiTestManager
+    public class ApiManager : IApiManager
     {
         public ObservableCollection<Beer> GetData { get; set; } = new ObservableCollection<Beer>();
         public Beer Remove { get; set; } = new Beer();
-        public ApiTestManager()
+        public ApiManager()
         {
-            Barrel.ApplicationId = "CachingDataTest";
+            Barrel.ApplicationId = "CachingData";
         }
-
         public async Task<ObservableCollection<Beer>> GetBeersAsync(string ID)
         {
-            byte p = 0;
-            byte n = 0;
-            byte s = 0;
+            byte KeyNumber = 0;
+            byte Condicion = 0;
             try
             {
                 if (Connectivity.NetworkAccess != NetworkAccess.Internet &&
@@ -37,15 +35,15 @@ namespace JustBeerApp.Services
                     do
                     {
 
-                        string m;
-                        m = n.ToString();
-                        var rata = Barrel.Current.Get<Data>(key: m);
-                        if (rata != null)
-                            GetData.Add(rata.Beer);
+                        string KeyString;
+                        KeyString = KeyNumber.ToString();
+                        var result = Barrel.Current.Get<Data>(key: KeyString);
+                        if (result != null)
+                            GetData.Add(result.Beer);
                         else
-                            s++;
-                        n++;
-                    } while (s != 1);
+                            Condicion++;
+                        KeyNumber++;
+                    } while (Condicion != 1);
                     return GetData;
                 }
 
@@ -55,17 +53,17 @@ namespace JustBeerApp.Services
 
                 do
                 {
-                    string m;
-                    m = n.ToString();
-                    var data = Barrel.Current.Get<Data>(key: m);
+                    string KeyString;
+                    KeyString = KeyNumber.ToString();
+                    var data = Barrel.Current.Get<Data>(key: KeyString);
                     if (data == null)
                     {
-                        Barrel.Current.Add(key: m, data: Beers, expireIn: TimeSpan.FromDays(1));
-                        p++;
+                        Barrel.Current.Add(key: KeyString, data: Beers, expireIn: TimeSpan.FromDays(1));
+                        Condicion++;
                     }
-                    n++;
-                } while (p != 1);
-                return  null;
+                    KeyNumber++;
+                } while (Condicion != 1);
+                return null;
             }
             catch (Exception ex)
             {
@@ -77,40 +75,41 @@ namespace JustBeerApp.Services
 
         public async Task<ObservableCollection<Beer>> ShowDataAsync()
         {
-            byte s = 0;
-            byte n = 0;
+            byte Condicion = 0;
+            byte KeyNumber = 0;
             do
             {
 
-                string m;
-                m = n.ToString();
-                var rata = Barrel.Current.Get<Data>(key: m);
-                if (rata != null)
-                    GetData.Add(rata.Beer);
+                string KeyString;
+                KeyString = KeyNumber.ToString();
+                var result = Barrel.Current.Get<Data>(key: KeyString);
+                if (result != null)
+                    GetData.Add(result.Beer);
                 else
-                    s++;
-                n++;
-            } while (s != 1);
+                    Condicion++;
+                KeyNumber++;
+            } while (Condicion != 1);
             return GetData;
         }
 
         public void RemoveData(Beer beerparam)
         {
-            byte n = 0;
-            byte s = 0;
+            byte KeyNumber = 0;
+            byte Condicion = 0;
             do
             {
-                string m;
-                m = n.ToString();
-                var rata = Barrel.Current.Get<Data>(key: m);
-                Remove = rata.Beer;
+                string KeyString;
+                KeyString = KeyNumber.ToString();
+                var result = Barrel.Current.Get<Data>(key: KeyString);
+                Remove = result.Beer;
                 if (Remove.Id == beerparam.Id)
                 {
-                    Barrel.Current.Empty(key: m);
-                    s++;
+                    Barrel.Current.Empty(key: KeyString);
+                    Condicion++;
                 }
-                n++;
-            } while (s != 1);
+                KeyNumber++;
+            } while (Condicion != 1);
         }
     }
 }
+
