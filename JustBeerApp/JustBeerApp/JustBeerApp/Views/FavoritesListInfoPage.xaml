@@ -25,7 +25,7 @@
 
                 <RefreshView IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}" RefreshColor="Gold">
-                    <CollectionView ItemsSource="{Binding Data}" BackgroundColor="Gold">
+                    <CollectionView ItemsSource="{Binding Data}">
                         <CollectionView.ItemTemplate>   
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal" Padding="10">
