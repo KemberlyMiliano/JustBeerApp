@@ -19,7 +19,7 @@ namespace JustBeerApp.ViewModels
         protected INavigationService NavigationService { get; set; }
         protected IApiBeerService ApiService { get; set; }
         protected IPageDialogService PageDialogService { get; set; }
-        protected IApiTestManager ApiManager { get; set; }
+        protected IApiManager ApiManager { get; set; }
         public Data RandomBeer { get; set; } = new Data();
         public Beers BeerList { get; set; } = new Beers();
         public ObservableCollection<Datum> HomeBeers { get; set; } = new ObservableCollection<Datum>();

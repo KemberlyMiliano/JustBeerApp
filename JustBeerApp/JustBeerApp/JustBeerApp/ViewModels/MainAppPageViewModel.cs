@@ -17,7 +17,7 @@ namespace JustBeerApp.ViewModels
         {
             TabNavigacion = new DelegateCommand(async () =>
             {
-                var request = new AuthenticationRequestConfiguration("Use your fingerprint", "We need to verify your humanity!");
+                var request = new AuthenticationRequestConfiguration("Use your fingerprint, We need to verify your humanity!");
                 var result = await CrossFingerprint.Current.AuthenticateAsync(request);
                 if (result.Authenticated)
                 {

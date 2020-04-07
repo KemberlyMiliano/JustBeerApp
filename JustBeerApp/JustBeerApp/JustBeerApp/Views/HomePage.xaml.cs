@@ -15,6 +15,7 @@ namespace JustBeerApp.Views
         public HomePage()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -16,54 +16,45 @@ namespace JustBeerApp.ViewModels
 {
     public class FavoritesListInfoPageViewModel : BaseViewModel 
     {
-        protected IApiTestManager ApiTestManager = new ApiTestManager();
+        protected IApiManager ApiManager = new ApiManager();
         public DelegateCommand GetBeersCommand { get; set; }
-        public DelegateCommand RemoveBeersCommand { get; set; }
         public DelegateCommand RefreshCommand { get; set; }
-        public DelegateCommand<Beer> GoToBeerInfo { get; set; }
+        public  DelegateCommand<Beer> ActionSheetCommand { get; set; }
         public ObservableCollection<Beer> Data { get; set; } = new ObservableCollection<Beer>();
-        public Beer test { get; set; }
         public bool IsRefreshing { get; set; }
-        public string BeerId { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
         {
             GetBeersCommand = new DelegateCommand(async () =>
             {
-                await GetBeersData(test);
+                await GetBeersData();
             });
             GetBeersCommand.Execute();
-
-            RemoveBeersCommand = new DelegateCommand(async () =>
-            {
-                await RemoveBeers();
-            });
 
             RefreshCommand = new DelegateCommand(async () => 
             {
                 IsRefreshing = true;
-                await GetBeersData(test);
+                Data.Clear();
+                await GetBeersData();
                 IsRefreshing = false;
             });
 
-            GoToBeerInfo = new DelegateCommand<Beer>(async (param) =>
-            {
-                var nav = new NavigationParameters();
-                nav.Add("BeerInfo", param);
 
-                await NavigationService.NavigateAsync(NavigationConstants.FavoriteBeerInfoPage, nav);
+            ActionSheetCommand = new DelegateCommand<Beer>((param) =>
+            {
+                 ActionSheertMethod(param);
             });
 
         }
-        public async Task GetBeersData(Beer beer)
+        public async Task GetBeersData()
         {
             try
             {
-                beer = await ApiTestManager.ShowDataAsync();
+                var beer = await ApiManager.ShowDataAsync();
                 if (beer != null)
                 {
                     if (Data == null)
                         Data = new ObservableCollection<Beer>();
-                    Data.Add(beer);
+                    Data = beer;
                 }
             }
             catch (Exception ex)
@@ -73,10 +64,37 @@ namespace JustBeerApp.ViewModels
             }
         }
 
-        public async Task RemoveBeers()
+        public async void ActionSheertMethod(Beer param)
         {
-            ApiTestManager.RemoveData();
-            
+            string Answer = await Application.Current.MainPage.DisplayActionSheet("Just Beer", "Cancel", null, "Show Beer Info", "Delete from Favorites");
+            switch (Answer) 
+            {
+                case "Show Beer Info":
+                    await GoToBeerInfo(param);
+                    break;
+                case "Delete from Favorites":
+                    await RemoveBeers(param);
+                    break;
+            }
+
+        }
+
+        public async Task RemoveBeers(Beer param)
+        {
+            IsRefreshing = true;
+            Data.Clear();
+            ApiManager.RemoveData(param);
+            await GetBeersData();
+            IsRefreshing = false;
+
+        }
+
+        public async Task GoToBeerInfo(Beer param)
+        {
+            var nav = new NavigationParameters();
+            nav.Add("BeerInfo", param);
+
+            await NavigationService.NavigateAsync(NavigationConstants.FavoriteBeerInfoPage, nav);
         }
     }
 }

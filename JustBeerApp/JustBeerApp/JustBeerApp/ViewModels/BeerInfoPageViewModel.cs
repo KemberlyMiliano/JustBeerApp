@@ -1,7 +1,7 @@
 ﻿using JustBeerApp.Models;
 using JustBeerApp.Services;
-using Plugin.Fingerprint;
-using Plugin.Fingerprint.Abstractions;
+//using Plugin.Fingerprint;
+//using Plugin.Fingerprint.Abstractions;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -16,7 +16,7 @@ namespace JustBeerApp.ViewModels
 {
     public class BeerInfoPageViewModel : BaseViewModel, IInitialize
     {
-        protected IApiTestManager ApiTestManager = new ApiTestManager();
+        protected IApiManager ApiManager = new ApiManager();
         public string FavoriteIcon { get; set; }
         public string ID { get; set; }
         public Datum NewBeer { get; set; } = new Datum();
@@ -67,7 +67,7 @@ namespace JustBeerApp.ViewModels
         public async Task AddToFavorites(Datum beerInformation)
         {
             FavoriteList.Add(beerInformation);
-            await ApiTestManager.GetBeersAsync(beerInformation.Id);
+            await ApiManager.GetBeersAsync(beerInformation.Id);
             FavoriteIcon = FavoriteList.Contains(beerInformation) ? "orangeHeart.png" : "favoritesIcon.png";
         }
     }
