@@ -40,7 +40,7 @@ namespace JustBeerApp.ViewModels
             {
                 var nav = new NavigationParameters();
                 nav.Add("Beer", param);
-                await navigation.NavigateAsync(NavigationConstants.BeerInfoPage);
+                await navigation.NavigateAsync(NavigationConstants.BeerInfoPage, nav);
             });
         }
     }
