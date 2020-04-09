@@ -7,35 +7,39 @@
              NavigationPage.HasNavigationBar="False"
              x:Class="JustBeerApp.Views.FavoritesListInfoPage"
              BackgroundColor="Black"
-             x:Name="FavoritePage">
+             x:Name="FavoritePage"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackLayout>
+            <yummy:PancakeView Style="{StaticResource PancakeStyle}"/>
+            <StackLayout Padding="15">
 
                 <Label Text="My Favorites"
-                       Grid.Row="0"
-                   FontFamily="{StaticResource BoldFont}"
-                   TextColor="White"
-                   FontSize="48"
-                   VerticalOptions="Start"
-                       Margin="0,50,0,0"/>
+                           TextColor="White"
+                           FontFamily="{StaticResource BoldFont}"                  
+                           FontSize="35"                  
+                           VerticalOptions="Start"                    
+                           Margin="10,20,0,20"/>
 
-                <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                     Command="{Binding RefreshCommand}" RefreshColor="Gold">
+                <RefreshView IsRefreshing="{Binding IsRefreshing}"                    
+                                 Command="{Binding RefreshCommand}" 
+                                 RefreshColor="Gold">
+
                     <CollectionView ItemsSource="{Binding Data}">
-                        <CollectionView.ItemTemplate>   
+                        <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Orientation="Horizontal" Padding="10">
                                     <Image 
-                                     Source="{Binding Labels.Large}" 
+                                      Source="{Binding Labels.Large}" 
                                       HeightRequest="60"
                                       WidthRequest="60"
                                       Margin="10,0,10,0"/>
-                                    <Label 
-                                   Text="{Binding NameDisplay}" TextColor="White"/>
+                                    <Label Text="{Binding NameDisplay}" 
+                                               TextColor="White"
+                                               FontFamily="{StaticResource NormalFont}"/>
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Path=BindingContext.ActionSheetCommand, Source={x:Reference FavoritePage}}"
                                                               CommandParameter="{Binding .}"/>
@@ -43,25 +47,27 @@
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
+
                         <CollectionView.EmptyView>
                             <StackLayout HorizontalOptions="Center">
-                                <Label Text="Save your favorite beers here."
-                                     Margin="10,25,10,10"
-                                     FontAttributes="Bold"
-                                     FontSize="18"
-                                     HorizontalOptions="Fill"
-                                     HorizontalTextAlignment="Center" 
-                                       TextColor="White"/>
-                                <Label Text="Get started"
-                                  FontAttributes="Italic"
-                                  FontSize="12"
-                                  HorizontalOptions="Fill"
-                                  HorizontalTextAlignment="Center"
-                                       TextColor="White"/>
+                                <Label Text="Save your favorite beers here."                                  
+                                           Margin="10,25,10,10"                                  
+                                           FontAttributes="Bold"                                 
+                                           FontSize="18"                                 
+                                           HorizontalOptions="Fill"                                 
+                                           HorizontalTextAlignment="Center" 
+                                           TextColor="White"/>
+
+                                <Label Text="Get started"                                
+                                           FontAttributes="Italic"                                
+                                           FontSize="12"                                
+                                           HorizontalOptions="Fill"                                 
+                                           HorizontalTextAlignment="Center"                                 
+                                           TextColor="White"/>
                             </StackLayout>
                         </CollectionView.EmptyView>
                     </CollectionView>
-              </RefreshView>
+                </RefreshView>
             </StackLayout>
         </Grid>
     </ScrollView>

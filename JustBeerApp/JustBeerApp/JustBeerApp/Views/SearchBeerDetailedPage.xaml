@@ -29,40 +29,36 @@
                 <CollectionView 
                     x:Name="SuggestionsListView"
                     SelectedItem="{Binding SelectedBeer}">
-                    <!--<CollectionView.EmptyView>
+                    <CollectionView.EmptyView>
                         <StackLayout>
                             <Image Source="searchIcon" Margin="0,120,0,0"/>
                             <Label Text="Search Beers"
                                    Margin="10,25,10,10"
-                                   FontAttributes="Bold"
+                                   Style="{StaticResource LabelStyle}"
                                    FontFamily="{StaticResource BoldFont}"
-                                   TextColor="White"
                                    FontSize="15"
-                                   HorizontalOptions="FillAndExpand"
                                    HorizontalTextAlignment="Center" />
                             <Label Text="Find your favorite beer."
                                    FontAttributes="Italic"
                                    FontSize="12"
-                                   TextColor="White"
+                                   Style="{StaticResource LabelStyle}"
                                    FontFamily="{StaticResource BoldFont}"
-                                   HorizontalOptions="Fill"
                                    HorizontalTextAlignment="Center" />
                         </StackLayout>
-                    </CollectionView.EmptyView>-->
+                    </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Orientation="Horizontal" Padding="10">
-                                <Image 
-                                            Source="{Binding Labels.Large}" 
-                                           HeightRequest="60"
-                                            WidthRequest="60"
-                                           Margin="10,0,10,0"
-                                            Aspect="Fill"/>
+                                <Image Source="{Binding Labels.Large}"                            
+                                       HeightRequest="60"                            
+                                       WidthRequest="60"
+                                       Margin="10,0,10,0" 
+                                       Aspect="Fill"/>
                                 <Label 
-                                           Text="{Binding NameDisplay}"    
-                                           FontAttributes="Bold"
-                                            TextColor="White"
-                                           Margin="0,20,10,0"/>
+                                    Text="{Binding NameDisplay}"                                          
+                                    FontAttributes="Bold"                                       
+                                    TextColor="White"                                        
+                                    Margin="0,20,10,0"/>
 
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToInfoBeerPage, Source={x:Reference searchPage}}"

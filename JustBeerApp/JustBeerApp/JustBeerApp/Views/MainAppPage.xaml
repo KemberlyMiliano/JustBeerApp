@@ -21,21 +21,19 @@
                        HeightRequest="60"
                        Margin="0,30,0,0"/>
 
+                    <Label Text="Beer and that's it!" 
+                           FontSize="20"
+                           VerticalOptions="Center" 
+                           Style="{StaticResource LabelStyle}"
+                           FontFamily="{StaticResource BoldFont}"/>
 
-                    <Label Text="Beer and that's it!"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       FontFamily="{StaticResource BoldFont}" 
-                       TextColor="White"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-                    <Button Text="Get started"
-                    FontFamily="{StaticResource NormalFont}"
-                    CornerRadius="40"
-                    Margin="25"
-                    TextColor="White"
-                    BackgroundColor="Black"
-                    Command="{Binding TabNavigacion}"/>
+                    <Button Text="Get started"                  
+                            FontFamily="{StaticResource NormalFont}"                    
+                            CornerRadius="40"                                  
+                            Margin="25"                   
+                            TextColor="White"                  
+                            BackgroundColor="Black" 
+                            Command="{Binding TabNavigacion}"/>
                 </StackLayout>
             </ScrollView>
         </Grid>

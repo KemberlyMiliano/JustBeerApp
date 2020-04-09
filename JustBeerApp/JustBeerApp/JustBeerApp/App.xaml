@@ -5,28 +5,37 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="JustBeerApp.App">
     <Application.Resources>
         <ResourceDictionary>
+
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White"/>
-                <Setter Property="FontSize" Value="15"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
             </Style>
-            <Style x:Key="GridStyle" TargetType="Grid">
-                <Setter Property="BackgroundColor" Value="DarkGray"/>
-                <Setter Property="Opacity" Value="0.3"/>
+
+            <Style x:Key="PancakeStyle" TargetType="yummy:PancakeView">
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="BackgroundGradientAngle" Value="130"/>
+                <Setter Property="BackgroundGradientStartColor" Value="Black"/>
+                <Setter Property="BackgroundGradientEndColor" Value="#333333"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
+
             <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
                 <On Platform="Android" Value="Raleway-Bold.ttf#Raleway" />
                 <On Platform="UWP" Value="/Assets/Raleway-Bold.ttf#Raleway" />
                 <On Platform="iOS" Value="Raleway-Bold" />
             </OnPlatform>
+
             <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
                 <On Platform="Android" Value="Raleway-Regular.ttf#Raleway" />
                 <On Platform="UWP" Value="/Assets/Raleway-Regular.ttf#Raleway" />
                 <On Platform="iOS" Value="Raleway-Regular" />
             </OnPlatform>
+
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.HomePage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="Black"
+             BackgroundColor="#181818"
              x:Name="homePage">
     <ContentPage.Content>
         <Grid>
@@ -21,14 +21,14 @@
 
             <Image Source="homeBackgroundImage.jpeg"
                    HorizontalOptions="Fill"
-                   VerticalOptions="Fill"
-                   Grid.Row="0"/>
+                   VerticalOptions="Fill"/>
+
             <Image Source="logoIcon"
                    HorizontalOptions="StartAndExpand"
                    VerticalOptions="Start"
                    HeightRequest="70"
-                   Grid.Row="0"
                    Margin="20,40,20,20"/>
+
             <ImageButton Source="settingsIcon"
                          HorizontalOptions="End"
                          VerticalOptions="Start"
@@ -39,17 +39,17 @@
 
             <Label Text="Recently added"
                    FontSize="20"
-                   FontFamily="{StaticResource BoldFont}"
                    TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"
                    Grid.Row="1"
-                    Margin="20,20,20,10"/>
+                   Margin="20,20,20,10"/>
 
             <CollectionView ItemsSource="{Binding HomeBeers}"  
                             Grid.Row="2"
                             SelectedItem="{Binding SelectedBeer}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
-                                 Span="2">
+                                     Span="2">
                     </GridItemsLayout>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
@@ -77,8 +77,8 @@
 
             <Label Text="Discover"
                    FontSize="20"
-                   FontFamily="{StaticResource BoldFont}"
                    TextColor="White"
+                   FontFamily="{StaticResource BoldFont}"
                    Grid.Row="3"
                    Margin="20"/>
 
@@ -98,9 +98,9 @@
                                    HeightRequest="100"    
                                    WidthRequest="30"/>
                             <Label Grid.Column="1"    
-                                   Text="{Binding NameDisplay}"    
-                                   FontAttributes="Bold"
-                                   TextColor="White"/>
+                                   Text="{Binding NameDisplay}"
+                                   TextColor="White"
+                                   FontFamily="{StaticResource BoldFont}"/>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToInfoBeerPage, Source={x:Reference homePage}}"
                                                       CommandParameter="{Binding .}"/>

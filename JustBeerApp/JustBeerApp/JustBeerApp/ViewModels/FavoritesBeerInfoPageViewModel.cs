@@ -13,18 +13,13 @@ using Xamarin.Forms;
 
 namespace JustBeerApp.ViewModels
 {
-    public class FavoritesBeerInfoPageViewModel : BaseViewModel , INavigationAware
+    public class FavoritesBeerInfoPageViewModel : BaseViewModel, INavigationAware
     {
         public Beer FavBeerInfo { get; set; } = new Beer();
-        public FavoritesBeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService)
-        {
-            
-        }
-
+        public FavoritesBeerInfoPageViewModel(INavigationService navigation, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigation, apiService, pageDialogService) { }
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             FavBeerInfo = parameters["BeerInfo"] as Beer;
-
         }
         public void OnNavigatedFrom(INavigationParameters parameters)
         {

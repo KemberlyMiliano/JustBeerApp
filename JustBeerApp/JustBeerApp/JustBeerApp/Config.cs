@@ -10,7 +10,7 @@ namespace JustBeerApp
         public const string NullMessage = null;
         public const string CancelMessage = "OK";
         public const string ApiUrl = "https://sandbox-api.brewerydb.com/v2/beer/";
-        public const string ApiKey = "?key=0eca4558813950961ce12aec376f2517";
+        public const string ApiKey = "?key=APIKEY";
         public const string ApiRandomUrl = "https://sandbox-api.brewerydb.com/v2/beer/random/";
         public const string ApiListOfBeersUrl = "https://sandbox-api.brewerydb.com/v2/beers/";
     }

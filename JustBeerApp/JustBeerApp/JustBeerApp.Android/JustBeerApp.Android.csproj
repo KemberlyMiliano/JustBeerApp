@@ -135,9 +135,6 @@
     <AndroidResource Include="Resources\drawable\homeBackgroundImage.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\FavPlusIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\beerIcon.png" />
   </ItemGroup>
   <ItemGroup>

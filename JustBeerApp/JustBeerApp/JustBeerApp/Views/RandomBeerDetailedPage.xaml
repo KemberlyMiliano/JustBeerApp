@@ -6,89 +6,85 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.RandomBeerDetailedPage"
              NavigationPage.HasNavigationBar="False"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              BackgroundColor="Black">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20">
-                <Image 
-                    Source="exitButton"
-                    HeightRequest="50" 
-                    HorizontalOptions="StartAndExpand"
-                    Margin="0,0,0,40">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
-              
-                <Frame BackgroundColor="White" 
-                       CornerRadius="5">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
+            <Grid>
+                <yummy:PancakeView Style="{StaticResource PancakeStyle}"/>
 
-                        <Image                       
+                <StackLayout Padding="20">
+                    <Image Source="exitButton"                   
+                           HeightRequest="50" 
+                           HorizontalOptions="StartAndExpand"                  
+                           Margin="0,0,0,40">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Frame BackgroundColor="White" CornerRadius="5">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image                       
                             Source="Image3"       
                             Margin="0,0,0,10"
-                            Grid.Row="0"
                             Grid.ColumnSpan="2"/>
-                        
 
-                        <Image
+                            <Image
                             Source="favoritesIcon"
                             HeightRequest="40" 
                             HorizontalOptions="End"
                             Margin="0,0,0,10"
                             Grid.Row="1"
                             Grid.Column="1">
-                        </Image>
+                            </Image>
 
-                        <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
+                            <Label Text="{Binding RandomBeer.Beer.NameDisplay}"
                            TextColor="Gray"
                            FontSize="30"
                            FontFamily="{StaticResource BoldFont}"
                            HorizontalOptions="Start"
-                           Grid.Row="1"
-                           Grid.Column="0"/>
+                           Grid.Row="1"/>
 
-                        <Grid Grid.Row="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            
-                            <Label Text="Style:"
-                           TextColor="Black"
-                           FontSize="20"
-                           FontFamily="{StaticResource NormalFont}"
-                                   TextDecorations="Underline"
-                           HorizontalOptions="Start"
-                           Margin="0,15,10,15"
-                                   Grid.Column="0"/>
+                            <Grid Grid.Row="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding RandomBeer.Beer.Style.ShortName}"
-                           TextColor="Black"
-                           FontSize="20"
-                           FontFamily="{StaticResource NormalFont}"
-                           HorizontalOptions="Start"
-                           Margin="0,15,0,15"
-                                   Grid.Column="1"/>
+                                <Label Text="Style:"                           
+                                       TextColor="Black"
+                                       FontSize="20"                        
+                                       FontFamily="{StaticResource NormalFont}"
+                                       TextDecorations="Underline"
+                                       HorizontalOptions="Start"
+                                       Margin="0,15,10,15"/>
+
+                                <Label Text="{Binding RandomBeer.Beer.Style.ShortName}"                           
+                                       TextColor="Black"                          
+                                       FontSize="20"                      
+                                       FontFamily="{StaticResource NormalFont}"                         
+                                       HorizontalOptions="Start"                           
+                                       Margin="0,15,0,15"
+                                       Grid.Column="1"/>
+                            </Grid>
                         </Grid>
+                    </Frame>
 
-                       
-                    </Grid>
-                </Frame>
-
-                <Button Text="Get another try"
+                    <Button Text="Get another try"
                         TextColor="White"
                         BackgroundColor="Gray"
                         FontFamily="{StaticResource BoldFont}"
@@ -97,7 +93,8 @@
                         Padding="15"
                         Command="{Binding GetRandomBeer}"/>
 
-            </StackLayout>
+                </StackLayout>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

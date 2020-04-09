@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              x:Class="JustBeerApp.Views.RandomBeerPage"
              NavigationPage.HasNavigationBar="False"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              BackgroundColor="Black">
     <ContentPage.Content>
         <ScrollView>
@@ -14,18 +15,16 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label                     
-                    Grid.Row="0"         
+                <yummy:PancakeView Style="{StaticResource PancakeStyle}"/>
+                <Label                         
                     Text="Random Beer"            
-                    TextColor="White"
                     FontSize="35"
+                    Style="{StaticResource LabelStyle}"
                     FontFamily="{StaticResource BoldFont}"
-                    HorizontalOptions="Center" 
                     Margin="0,50,0,0"/>
 
                 <local:CustomLoader             
-                    x:Name="loader"          
-                    Grid.Row="0"             
+                    x:Name="loader"                    
                     Source="beerIcon"            
                     HeightRequest="250"            
                     RotationLenght="2500"           
@@ -39,7 +38,6 @@
 
                 <Label 
                     Text="Tap the beer to get a random one!" 
-                    Grid.Row="0"
                     TextColor="Gray"
                     FontFamily="{StaticResource NormalFont}"
                     VerticalOptions="End"

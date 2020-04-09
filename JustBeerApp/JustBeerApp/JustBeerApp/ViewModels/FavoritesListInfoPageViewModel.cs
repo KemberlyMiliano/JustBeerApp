@@ -14,12 +14,12 @@ using Xamarin.Forms;
 
 namespace JustBeerApp.ViewModels
 {
-    public class FavoritesListInfoPageViewModel : BaseViewModel 
+    public class FavoritesListInfoPageViewModel : BaseViewModel
     {
         protected IApiManager ApiManager = new ApiManager();
         public DelegateCommand GetBeersCommand { get; set; }
         public DelegateCommand RefreshCommand { get; set; }
-        public  DelegateCommand<Beer> ActionSheetCommand { get; set; }
+        public DelegateCommand<Beer> ActionSheetCommand { get; set; }
         public ObservableCollection<Beer> Data { get; set; } = new ObservableCollection<Beer>();
         public bool IsRefreshing { get; set; }
         public FavoritesListInfoPageViewModel(INavigationService navigationService, IApiBeerService apiService, IPageDialogService pageDialogService) : base(navigationService, apiService, pageDialogService)
@@ -30,7 +30,7 @@ namespace JustBeerApp.ViewModels
             });
             GetBeersCommand.Execute();
 
-            RefreshCommand = new DelegateCommand(async () => 
+            RefreshCommand = new DelegateCommand(async () =>
             {
                 IsRefreshing = true;
                 Data.Clear();
@@ -41,7 +41,7 @@ namespace JustBeerApp.ViewModels
 
             ActionSheetCommand = new DelegateCommand<Beer>((param) =>
             {
-                 ActionSheertMethod(param);
+                ActionSheertMethod(param);
             });
 
         }
@@ -67,7 +67,7 @@ namespace JustBeerApp.ViewModels
         public async void ActionSheertMethod(Beer param)
         {
             string Answer = await Application.Current.MainPage.DisplayActionSheet("Just Beer", "Cancel", null, "Show Beer Info", "Delete from Favorites");
-            switch (Answer) 
+            switch (Answer)
             {
                 case "Show Beer Info":
                     await GoToBeerInfo(param);
@@ -76,7 +76,6 @@ namespace JustBeerApp.ViewModels
                     await RemoveBeers(param);
                     break;
             }
-
         }
 
         public async Task RemoveBeers(Beer param)
@@ -86,14 +85,12 @@ namespace JustBeerApp.ViewModels
             ApiManager.RemoveData(param);
             await GetBeersData();
             IsRefreshing = false;
-
         }
 
         public async Task GoToBeerInfo(Beer param)
         {
             var nav = new NavigationParameters();
             nav.Add("BeerInfo", param);
-
             await NavigationService.NavigateAsync(NavigationConstants.FavoriteBeerInfoPage, nav);
         }
     }

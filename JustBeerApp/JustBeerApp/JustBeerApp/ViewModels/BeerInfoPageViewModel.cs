@@ -1,7 +1,5 @@
 ﻿using JustBeerApp.Models;
 using JustBeerApp.Services;
-//using Plugin.Fingerprint;
-//using Plugin.Fingerprint.Abstractions;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -44,7 +42,7 @@ namespace JustBeerApp.ViewModels
         {
             if (parameters.ContainsKey("Beer"))
             {
-                NewBeer = parameters["Beer"] as Datum;  
+                NewBeer = parameters["Beer"] as Datum;
             }
         }
         public async Task GetBeerInfo()
