@@ -58,10 +58,13 @@ It allows:
 
 ## The team
 
-- Kemberly Miliano 
-- Diego javier 
-- Axel Lopez 
-
+- Kemberly Miliano - 1086391
+- Diego Javier - 1087228
+- Axel Lopez - 1088114
+## Work Division
+https://trello.com/b/hq68GMbZ/justbeerapp
+## Mockup Link
+https://drive.google.com/file/d/1NFNZ-mDC17O4hD6wRS0g_-2Fmbe0i-fC/view?usp=sharing
 ## Tools used
 
 - **Xamarin.Essentials** - Essential cross platform APIs for your mobile apps.     
