@@ -14,9 +14,9 @@ It allows:
 
 <table border="0" cellpadding="0" cellspacing="0">
 <tr>
-
+<td> <img src="Screenshots/20200409-103924.gif" width="250"/>  </td>
 <td> <img width="100"/>  </td>
-
+<td><img src="Screenshots/20200409-110742.gif" width="250" /></td>
 </tr>
 </table>
 
