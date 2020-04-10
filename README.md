@@ -58,7 +58,7 @@ It allows:
 
 ## The team
 
-- Kemberly Miliano - 1086391
+- Kemberly Miliano(https://github.com/KemberlyMiliano) - 1086391
 - Diego Javier(https://github.com/DiegoJavierJ) - 1087228 
 - Axel Lopez(https://github.com/allopez89) - 1088114
 ## Work Division
