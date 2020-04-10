@@ -59,7 +59,7 @@ It allows:
 ## The team
 
 - Kemberly Miliano - 1086391
-- DiegoJavierJ - 1087228 
+https://github.com/DiegoJavierJ - 1087228 
 - Axel Lopez - 1088114
 ## Work Division
 https://trello.com/b/hq68GMbZ/justbeerapp
