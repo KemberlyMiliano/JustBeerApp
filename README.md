@@ -64,7 +64,7 @@ It allows:
 ## Work Division
 https://trello.com/b/hq68GMbZ/justbeerapp
 ## Mockup Link
-https://drive.google.com/file/d/1NFNZ-mDC17O4hD6wRS0g_-2Fmbe0i-fC/view?usp=sharing
+Added in this repository as JustBeerApp.pdf
 ## Tools used
 
 - **Xamarin.Essentials** - Essential cross platform APIs for your mobile apps.     
